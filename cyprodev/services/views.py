@@ -9,7 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 
-class ServiceListView(ListView):
+class ServiceListView(LoginRequiredMixin, ListView):
     model = Service
 
     def get_context_data(self, **kwargs):
@@ -19,7 +19,7 @@ class ServiceListView(ListView):
         return context
 
 
-class ServiceDetailView(DetailView):
+class ServiceDetailView(LoginRequiredMixin, DetailView):
     model = Service
 
     def get_context_data(self, **kwargs):
@@ -29,7 +29,7 @@ class ServiceDetailView(DetailView):
         return context
 
 
-class ServiceCreateView(FormUserNeededMixin, CreateView):
+class ServiceCreateView(LoginRequiredMixin, FormUserNeededMixin, CreateView):
     form_class = ServiceModelForm
     template_name = 'services/services_add.html'
 

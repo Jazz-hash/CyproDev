@@ -1,13 +1,16 @@
 from django.shortcuts import render
-from django.views.generic import CreateView,TemplateView
+from django.views.generic import CreateView, TemplateView
 from .forms import PortfolioForm
 from cyprodev.mixins import FormUserNeededMixin
 from .models import Portfolio, Images
 from django.urls import reverse_lazy
 from django.http import HttpResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 # Create your views here.
 
-class UnderConstruction(TemplateView):
+
+class UnderConstruction(LoginRequiredMixin, TemplateView):
     template_name = 'portfolio/under.html'
 
     def get_context_data(self, **kwargs):
@@ -17,7 +20,7 @@ class UnderConstruction(TemplateView):
         return context
 
 
-class FileFieldView(FormUserNeededMixin, CreateView):
+class FileFieldView(LoginRequiredMixin, FormUserNeededMixin, CreateView):
     form_class = PortfolioForm
     template_name = 'portfolio/portfolio_add.html'
 

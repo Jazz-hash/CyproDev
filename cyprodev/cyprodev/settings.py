@@ -124,8 +124,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static-storage"),]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static-storage"), ]
 STATIC_ROOT = os.path.join(BASE_DIR, "static-serve")
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+EMAIL_FILE_PATH = os.path.join((BASE_DIR), "mails")
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'travellingdiaries2019@gmail.com'
+SERVER_EMAIL = 'travellingdiaries2019@gmail.com'
+DEFAULT_FROM_EMAIL = 'travellingdiaries2019@gmail.com'
+EMAIL_HOST_PASSWORD = 'Travel1234'
+EMAIL_USE_TLS = True

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import CreateView
 from .forms import ContactForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 

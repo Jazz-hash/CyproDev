@@ -8,6 +8,7 @@ from django.views.generic.edit import FormView
 from .forms import UserForm, UserDetailsForm, ProfileForm
 from django.urls import reverse_lazy, reverse
 from .models import Profile
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 User = get_user_model()
@@ -28,6 +29,7 @@ class UserRegisterView(FormView):
         return super(UserRegisterView, self).form_valid(form)
 
 
+@login_required
 def multiple_forms(request):
     user = get_object_or_404(Profile, user=request.user)
     profile_form = ProfileForm(request.POST or None, instance=user)
