@@ -1,0 +1,43 @@
+{% extends 'dashboard/base.html' %}
+{% block graph %}
+<div class="panel-header panel-header-sm">
+</div>
+{% endblock graph %}
+{% block body %}
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-11">
+                <h2 style="font-family: Pacifico;" class="m-2">{{head}} > {{sub_head}}</h2>
+            </div>
+            <div class="col-1">
+                <button class="btn btn-primary float-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+            </div>
+        </div>
+        <hr>
+        <table class="table table-striped table-inverse">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Category</th>
+                    <th>Added By</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for service in object_list %}
+                <tr>
+                    <td scope="row">{{service.head}}</td>
+                    <td>{{service.user.first_name}} {{service.user.last_name}}</td>
+                    <td><a href="{% url 'services:details' pk=service.id %}" class="btn btn-primary buttons btn-sm"><i
+                                class="now-ui-icons education_glasses"></i></a> | <a
+                            href="{% url 'services:edit' pk=service.id %}" class="btn btn-secondary btn-sm"><i
+                                class="now-ui-icons design-2_ruler-pencil"></i></a> | <a
+                            href="{% url 'services:delete' pk=service.id %}" class="btn btn-danger btn-sm"><i
+                                class="now-ui-icons ui-1_simple-remove"></i></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock body %}

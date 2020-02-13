@@ -1,0 +1,27 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+    <title>Cyprodev | {{head}}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% include 'base/stylesheets.html' %}
+</head>
+
+<body>
+    <div id="overlayer"></div>
+    {% include 'base/loader.html' %}
+    <div class="site-wrap">
+        {% include 'base/navigation.html' %}
+        {% include 'base/slider.html' %}
+        {% block body %}
+
+        {% endblock body %}
+        {% include 'base/footer.html' %}
+    </div>
+    {% include 'base/scripts.html' %}
+</body>
+
+</html>

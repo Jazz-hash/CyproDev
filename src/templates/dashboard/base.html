@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Cyprodev | {{head}}
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
+    {% include 'dashboard/stylesheets.html' %}
+</head>
+
+<body class="">
+    <div class="wrapper">
+        {% include 'dashboard/sidebar.html' %}
+        <div class="main-panel" id="main-panel">
+            <!-- Navbar -->
+            {% include 'dashboard/navigation.html' %}
+            <!-- End Navbar -->
+            {% block graph %}
+            {% endblock graph %}
+            <div class="content">
+                {% block body %}
+                {% endblock body %}
+            </div>
+
+        </div>
+    </div>
+    {% include 'dashboard/scripts.html' %}
+
+    {% block scripts %}
+
+    {% endblock scripts %}
+
+</body>
+
+</html>
