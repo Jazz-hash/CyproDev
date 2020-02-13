@@ -1,0 +1,110 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from colorlib.com/etc/lf/Login_v3/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Feb 2020 06:18:11 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
+<head>
+    <title>Login V3</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" href="{% static 'static/images/icons/favicon.ico' %}  " />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'static/vendor/bootstrap/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'static/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'static/fonts/iconic/css/material-design-iconic-font.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'static/vendor/animate/animate.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'static/vendor/css-hamburgers/hamburgers.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'static/vendor/animsition/css/animsition.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'static/vendor/select2/select2.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'static/vendor/daterangepicker/daterangepicker.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'static/css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'static/css/main.css' %}">
+
+</head>
+
+<body>
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url('{% static 'static/images/bg-01.jpg' %}');">
+            <div class="wrap-login100">
+                <form {% if form_id %} id='{{ form_id }}' {% endif %}
+                    action="{% if action_url %}{{ action_url }}{% endif %}" method="POST"
+                    class="login100-form validate-form">
+                    {% csrf_token %}
+                    <span class="login100-form-logo">
+                        <i class="zmdi zmdi-landscape"></i>
+                    </span>
+                    <span class="login100-form-title p-b-34 p-t-27">
+                        Log in
+                    </span>
+                    {{form|crispy}}
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            Login
+                        </button>
+                    </div>
+                    <div class="text-center p-t-90">
+                        <a class="txt1" href="#">
+                            Forgot Password?
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="dropDownSelect1"></div>
+
+    <script src="{% static 'static/vendor/jquery/jquery-3.2.1.min.js' %}"
+        type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
+
+    <script src="{% static 'static/vendor/animsition/js/animsition.min.js' %}"
+        type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
+
+    <script src="{% static 'static/vendor/bootstrap/js/popper.js' %}"
+        type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
+    <script src="{% static 'static/vendor/bootstrap/js/bootstrap.min.js' %}"
+        type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
+
+    <script src="{% static 'static/vendor/select2/select2.min.js' %}"
+        type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
+
+    <script src="{% static 'static/vendor/daterangepicker/moment.min.js' %}"
+        type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
+    <script src="{% static 'static/vendor/daterangepicker/daterangepicker.js' %}"
+        type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
+
+    <script src="{% static 'static/vendor/countdowntime/countdowntime.js' %}"
+        type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
+
+    <script src="{% static 'static/js/main.js' %}" type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
+        type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
+    <script type="e99dbf9ee28df24e3133ad47-text/javascript">
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-23581568-13');
+	</script>
+    <script src="{% static 'static/js/rocket-loader.min.js' %}" data-cf-settings="e99dbf9ee28df24e3133ad47-|49"
+        defer=""></script>
+</body>
+
+<!-- Mirrored from colorlib.com/etc/lf/Login_v3/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Feb 2020 06:18:24 GMT -->
+
+</html>

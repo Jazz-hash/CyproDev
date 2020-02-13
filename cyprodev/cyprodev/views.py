@@ -1,6 +1,7 @@
 from django import views
 from django.shortcuts import render
 from django.views.generic import (TemplateView)
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class Index(TemplateView):
@@ -26,7 +27,7 @@ class About(TemplateView):
         return context
 
 
-class Dashboard(TemplateView):
+class Dashboard(LoginRequiredMixin, TemplateView):
     template_name = "dashboard/dashboard.html"
 
     def get_context_data(self, **kwargs):

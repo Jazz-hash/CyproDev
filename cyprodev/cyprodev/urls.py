@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 from services.views import ServiceHomeListView
 from contact.views import ContactCreateView
 from . import views
+from django.contrib.auth.views import LoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,9 +28,11 @@ urlpatterns = [
     path('about/', views.About.as_view(), name="about"),
     path('our-services/', ServiceHomeListView.as_view(), name="services"),
     path('contact/', ContactCreateView.as_view(), name="contact"),
-    path('dashboard', views.Dashboard.as_view(), name="dashboard"),
+    path('dashboard/', views.Dashboard.as_view(), name="dashboard"),
     path('accounts/', include('accounts.urls', namespace='accounts')),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('login/', LoginView.as_view(template_name='login.html',
+                                     success_url='dashboard'), name='login'),
+    # path('accounts/', include('django.contrib.auth.urls')),
     path('services/', include('services.urls', namespace='services')),
     path('portfolio/', include('portfolio.urls', namespace='portfolio')),
     path('api/user/', include('accounts.api.urls', namespace='accounts-api')),
