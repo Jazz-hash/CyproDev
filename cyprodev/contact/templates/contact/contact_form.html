@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block body %}
+<section class="site-section" id="next-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                {% load crispy_forms_tags %}
+                <form {% if form_id %} id='{{ form_id }}' {% endif %}
+                    action="{% if action_url %}{{ action_url }}{% endif %}" class="w-100" method="POST">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <input class="btn btn-dark" type="submit" value="Send">
+                </form>
+            </div>
+            <div class="col-lg-5 ml-auto">
+                <div class="p-4 mb-3 bg-white">
+                    <p class="mb-0 font-weight-bold">Phone</p>
+                    <p class="mb-4"><a href="#">+1 232 3235 324</a></p>
+                    <p class="mb-0 font-weight-bold">Email Address</p>
+                    <p class="mb-0"><span>contact@cyprodev.com</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock body %}
