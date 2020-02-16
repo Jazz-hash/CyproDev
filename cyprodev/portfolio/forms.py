@@ -4,8 +4,17 @@ from .models import Portfolio
 
 class PortfolioForm(forms.ModelForm):
     images = forms.FileField(
-        widget=forms.ClearableFileInput(attrs={'multiple': True}))
+        widget=forms.ClearableFileInput(attrs={'multiple': True, 'class': 'form-control mb-2'}))
 
     class Meta:
         model = Portfolio
-        fields = ['name', 'language', 'description', 'images', 'hosted_link']
+        fields = ['name', 'category', 'language',
+                  'description', 'images', 'hosted_link']
+
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control mb-2'}),
+            'language': forms.TextInput(attrs={'class': 'form-control mb-2'}),
+            'category': forms.Select(attrs={'class': 'form-control mb-2'}),
+            'description': forms.Textarea(attrs={'class': 'form-control mb-2'}),
+            'hosted_link': forms.URLInput(attrs={'class': 'form-control mb-2'})
+        }

@@ -1,7 +1,21 @@
-{% load crispy_forms_tags %}
-<form {% if form_id %} id='{{ form_id }}' {% endif %} action="{% if action_url %}{{ action_url }}{% endif %}"
-    class="w-100" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <input class="btn btn-dark" type="submit" value="{{btn_title}}">
-</form>
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block graph %}
+<div class="panel-header panel-header-sm">
+</div>
+{% endblock graph %}
+{% block body %}
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-11">
+                <h2 style="font-family: Pacifico;" class="m-2">{{head}} > {{sub_head}}</h2>
+            </div>
+        </div>
+        <hr>
+        {% include 'portfolio/form.html' with form=form btn_title='Add' %}
+        <p><a href="{% url 'services:list' %}">Back to List</a></p>
+
+    </div>
+</div>
+{% endblock body %}

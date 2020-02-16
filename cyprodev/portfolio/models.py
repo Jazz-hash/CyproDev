@@ -1,11 +1,10 @@
 from django.db import models
-
-# Create your models here.
 from django.conf import settings
 from django.urls import reverse
-
-
+from services.models import Service
 # Create your models here.
+
+
 class Portfolio(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -13,6 +12,8 @@ class Portfolio(models.Model):
     language = models.CharField(max_length=50)
     description = models.TextField(blank=True)
     hosted_link = models.URLField(blank=True)
+    category = models.ForeignKey(
+        Service, on_delete=models.CASCADE, default=None)
 
     def __str__(self):
         return self.name
@@ -21,7 +22,10 @@ class Portfolio(models.Model):
         return reverse('portfolio:add')
 
 
-class Images(models.Model):
-    protfolio = models.ForeignKey(
-        Portfolio, on_delete=models.CASCADE, default=None)
+class Image(models.Model):
+    portfolio = models.ForeignKey(
+        Portfolio, on_delete=models.CASCADE, default=None, related_name='porfolio_images')
     image = models.ImageField(upload_to='portfolio-images', blank=True)
+
+    def __str__(self):
+        return self.portfolio.name

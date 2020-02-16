@@ -13,5 +13,6 @@
         "statusBar.background": "#30090c",
         "statusBarItem.hoverBackground": "#5b1117",
         "statusBar.foreground": "#e7e7e7"
-    }
+    },
+    "python.pythonPath": "/home/jazz/anaconda3/bin/python"
 }

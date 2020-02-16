@@ -2,11 +2,14 @@
 {% load static %}
 {% block body %}
 <section class="site-section" id="next-section">
+
     <div class="container">
+        <h1>Contact Us</h1>
+
         <div class="row">
             <div class="col-lg-6 mb-5 mb-lg-0">
                 {% load crispy_forms_tags %}
-                <form {% if form_id %} id='{{ form_id }}' {% endif %}
+                <form onsubmit="return show()" {% if form_id %} id='{{ form_id }}' {% endif %}
                     action="{% if action_url %}{{ action_url }}{% endif %}" class="w-100" method="POST">
                     {% csrf_token %}
                     {{ form|crispy }}
@@ -25,3 +28,18 @@
     </div>
 </section>
 {% endblock body %}
+
+
+{% block scripts %}
+<script>
+    function show() {
+        var text = 'Someone from #CyproDev will contact you soon !!';
+        Swal.fire({
+            title: 'Message delivered to admins',
+            text: text,
+            icon: 'success',
+
+        })
+    }
+</script>
+{% endblock scripts %}

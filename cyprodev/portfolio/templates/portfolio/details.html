@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-body">
+        <dl>
+            <dt>Author</dt>
+            <dd>{{object.user.first_name}} {{object.user.last_name}}</dd>
+            <dt>Name</dt>
+            <dd>{{object.name}}</dd>
+            <dt>Language</dt>
+            <dd>{{object.language}}</dd>
+            <dt>Description</dt>
+            <dd>
+                {% if object.description %}{{object.description}}
+                {% else %} No description
+                {% endif %}
+            </dd>
+            <dt>Images</dt>
+            <dd class="p-4">
+                <div class="card">
+                    <div class="card-body">
+
+                        {% for data in porfolio_images %}
+                        {{data}}
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </dd>
+        </dl>
+    </div>
+</div>
