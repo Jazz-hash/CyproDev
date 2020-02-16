@@ -1,30 +1,59 @@
 <div class="card">
     <div class="card-body">
         <dl>
-            <dt>Author</dt>
-            <dd>{{object.user.first_name}} {{object.user.last_name}}</dd>
-            <dt>Name</dt>
-            <dd>{{object.name}}</dd>
-            <dt>Language</dt>
-            <dd>{{object.language}}</dd>
-            <dt>Description</dt>
-            <dd>
-                {% if object.description %}{{object.description}}
-                {% else %} No description
-                {% endif %}
-            </dd>
-            <dt>Images</dt>
-            <dd class="p-4">
-                <div class="card">
-                    <div class="card-body">
-
-                        {% for data in porfolio_images %}
-                        {{data}}
-                        {% endfor %}
-
-                    </div>
+            <dt class="text-center h4 font-weight-bold">Author</dt>
+            <dd class="text-center h3">{{object.user.first_name}} {{object.user.last_name}}</dd>
+            <div class="row text-center">
+                <div class="col">
+                    <dt c;>Name</dt>
+                    <dd>{{object.name}}</dd>
                 </div>
-            </dd>
+                <div class="col">
+                    <dt>Language</dt>
+                    <dd>{{object.language}}</dd>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col">
+
+                    <dt>Description</dt>
+                    <dd>
+                        {% if object.description %}{{object.description}}
+                        {% else %} No description
+                        {% endif %}
+                    </dd>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col">
+                    <dd class="p-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>Images</h5>
+                                <div class="card-columns">
+
+                                    {% for data in object.porfolio_images.all %}
+                                    <div class="card float-left">
+                                        <div class="card-body">
+                                            <img src="/media/{{data.image}}" alt="">
+
+                                        </div>
+                                    </div>
+                                    {% empty %}
+                                    <div class="card float-left">
+                                        <div class="card-body text-center">
+                                            No images available to show
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </dd>
+                </div>
+            </div>
         </dl>
     </div>
 </div>

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import (
-    CreateView, TemplateView, ListView, DeleteView)
+    CreateView, TemplateView, ListView, DeleteView, DetailView)
 from .forms import PortfolioForm
 from cyprodev.mixins import FormUserNeededMixin
 from .models import Portfolio, Image
@@ -24,12 +24,22 @@ class PortfolioListView(ListView):
 
 class PortfolioDeleteView(DeleteView):
     model = Portfolio
+    select_related = ('images')
 
     def get_context_data(self, **kwargs):
         context = super(PortfolioDeleteView, self).get_context_data(**kwargs)
         context['head'] = 'Portfolio'
-        context['sub_head'] = 'List'
-        context['images_data'] = Image.objects.filter(portfolio=model)
+        context['sub_head'] = 'Remove'
+        return context
+
+
+class PortfolioDetailView(DetailView):
+    model = Portfolio
+
+    def get_context_data(self, **kwargs):
+        context = super(PortfolioDetailView, self).get_context_data(**kwargs)
+        context['head'] = 'Portfolio'
+        context['sub_head'] = 'Details'
         return context
 
 

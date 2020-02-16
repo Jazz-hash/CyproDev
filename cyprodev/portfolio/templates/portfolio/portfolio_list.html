@@ -31,12 +31,12 @@
                     <td scope="row">{{portfolio.name}}</td>
                     <td>{{portfolio.user.first_name}} {{portfolio.user.last_name}}</td>
                     <td>{{portfolio.language}}</td>
-                    <td>{% comment %}<a href="{% url 'services:details' pk=service.id %}"
+                    <td><a href="{% url 'portfolio:details' pk=portfolio.id %}"
                             class="btn btn-primary buttons btn-sm"><i class="now-ui-icons education_glasses"></i></a> |
-                        <a href="{% url 'services:edit' pk=service.id %}" class="btn btn-secondary btn-sm"><i
-                                class="now-ui-icons design-2_ruler-pencil"></i></a> | <a
-                            href="{% url 'services:delete' pk=service.id %}" class="btn btn-danger btn-sm"><i
-                                class="now-ui-icons ui-1_simple-remove"></i></a>{% endcomment %}</td>
+                        {% comment %}<a href="{% url 'portfolio:edit' pk=portfolio.id %}"
+                            class="btn btn-secondary btn-sm"><i class="now-ui-icons design-2_ruler-pencil"></i></a> |
+                        {% endcomment %}<a href="{% url 'portfolio:delete' pk=portfolio.id %}"
+                            class="btn btn-danger btn-sm"><i class="now-ui-icons ui-1_simple-remove"></i></a></td>
                 </tr>
                 {% endfor %}
             </tbody>

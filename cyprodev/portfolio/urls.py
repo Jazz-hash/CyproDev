@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import (PortfolioCreateView, PortfolioListView,
-                    PortfolioDeleteView, UnderConstruction)
+                    PortfolioDeleteView, UnderConstruction, PortfolioDetailView)
 app_name = 'portfolio'
 
 urlpatterns = [
@@ -8,6 +8,6 @@ urlpatterns = [
     path('add/', PortfolioCreateView.as_view(), name='add'),
     # path('edit/<int:pk>/', ServiceUpdateView.as_view(), name='edit'),
     path('delete/<int:pk>/', PortfolioDeleteView.as_view(), name='delete'),
-    # path('details/<int:pk>/', ServiceDetailView.as_view(), name='details'),
+    path('details/<int:pk>/', PortfolioDetailView.as_view(), name='details'),
 
 ]

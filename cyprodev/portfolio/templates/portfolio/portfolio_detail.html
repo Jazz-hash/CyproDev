@@ -1,5 +1,5 @@
 {% extends 'dashboard/base.html' %}
-{% load static %}
+
 {% block graph %}
 <div class="panel-header panel-header-sm">
 </div>
@@ -13,9 +13,10 @@
             </div>
         </div>
         <hr>
-        {% include 'portfolio/form.html' with form=form btn_title='Add' %}
+        {% include 'portfolio/details.html' %}
         <p><a href="{% url 'portfolio:list' %}">Back to List</a></p>
 
     </div>
 </div>
+
 {% endblock body %}
