@@ -12,6 +12,18 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 
+class PortfolioPublicListView(TemplateView):
+    model = Portfolio
+    template_name = 'portfolio/portfolios.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(PortfolioPublicListView,
+                        self).get_context_data(**kwargs)
+        context['slider_head'] = 'Portfolio'
+        context['slider_sub_head'] = 'Lorem'
+        return context
+
+
 class PortfolioListView(ListView):
     model = Portfolio
 
@@ -71,11 +83,8 @@ class PortfolioCreateView(LoginRequiredMixin, FormUserNeededMixin, CreateView):
         hosted_link = request.POST.get('hosted_link')
         category = request.POST.get('category')
         images = request.FILES.getlist('images')
-        print('-----------------', category)
-        print('-----------------', Service.objects.get(pk=category))
 
         if form.is_valid():
-            print('312312222222222222222222222222')
             portfolio_form = Portfolio.objects.create(
                 user=request.user, category=Service.objects.get(pk=category))
             portfolio_form.name = name

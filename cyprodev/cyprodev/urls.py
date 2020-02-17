@@ -21,12 +21,14 @@ from services.views import ServiceHomeListView
 from contact.views import ContactCreateView
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
+from portfolio.views import PortfolioPublicListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.Index.as_view(), name="home"),
     path('about/', views.About.as_view(), name="about"),
     path('our-services/', ServiceHomeListView.as_view(), name="services"),
+    path('portfolios/', PortfolioPublicListView.as_view(), name="portfolios"),
     path('contact/', ContactCreateView.as_view(), name="contact"),
     path('dashboard/', views.Dashboard.as_view(), name="dashboard"),
     path('accounts/', include('accounts.urls', namespace='accounts')),
