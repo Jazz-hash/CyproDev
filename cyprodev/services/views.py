@@ -4,7 +4,7 @@ from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView)
 from .models import Service
 from .forms import ServiceModelForm
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 # Create your views here.
 
@@ -29,7 +29,7 @@ class ServiceDetailView(LoginRequiredMixin, DetailView):
         return context
 
 
-class ServiceCreateView(LoginRequiredMixin, FormUserNeededMixin, CreateView):
+class ServiceCreateView(LoginRequiredMixin, UserPassesTestMixin, FormUserNeededMixin, CreateView):
     form_class = ServiceModelForm
     template_name = 'services/services_add.html'
 
@@ -39,8 +39,11 @@ class ServiceCreateView(LoginRequiredMixin, FormUserNeededMixin, CreateView):
         context['sub_head'] = 'New'
         return context
 
+    def test_func(self):
+        return self.request.user.is_superuser
 
-class ServiceUpdateView(LoginRequiredMixin, UserOwnerMixin, UpdateView):
+
+class ServiceUpdateView(LoginRequiredMixin, UserPassesTestMixin, UserOwnerMixin, UpdateView):
     model = Service
     form_class = ServiceModelForm
     template_name = 'services/services_edit.html'
@@ -51,8 +54,11 @@ class ServiceUpdateView(LoginRequiredMixin, UserOwnerMixin, UpdateView):
         context['sub_head'] = 'Edit'
         return context
 
+    def test_func(self):
+        return self.request.user.is_superuser
 
-class ServiceDeleteView(LoginRequiredMixin, DeleteView):
+
+class ServiceDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Service
     success_url = 'services:list'
 
@@ -61,6 +67,9 @@ class ServiceDeleteView(LoginRequiredMixin, DeleteView):
         context['head'] = 'Services'
         context['sub_head'] = 'Remove'
         return context
+
+    def test_func(self):
+        return self.request.user.is_superuser
 
 
 class ServiceHomeListView(ListView):

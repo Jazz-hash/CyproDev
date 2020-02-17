@@ -11,8 +11,11 @@
                 <h2 style="font-family: Pacifico;" class="m-2">{{head}} > {{sub_head}}</h2>
             </div>
             <div class="col-1">
+                {% if request.user.is_superuser %}
                 <a class="btn btn-primary float-right" href="{% url 'services:add' %}"><i class="fa fa-plus"
                         aria-hidden="true"></i></a>
+                {% endif %}
+
             </div>
         </div>
         <hr>
@@ -30,11 +33,13 @@
                     <td scope="row">{{service.head}}</td>
                     <td>{{service.user.first_name}} {{service.user.last_name}}</td>
                     <td><a href="{% url 'services:details' pk=service.id %}" class="btn btn-primary buttons btn-sm"><i
-                                class="now-ui-icons education_glasses"></i></a> | <a
-                            href="{% url 'services:edit' pk=service.id %}" class="btn btn-secondary btn-sm"><i
-                                class="now-ui-icons design-2_ruler-pencil"></i></a> | <a
-                            href="{% url 'services:delete' pk=service.id %}" class="btn btn-danger btn-sm"><i
+                                class="now-ui-icons education_glasses"></i></a>
+                        {% if request.user.is_superuser %}
+                        | <a href="{% url 'services:edit' pk=service.id %}" class="btn btn-secondary btn-sm"><i
+                                class="now-ui-icons design-2_ruler-pencil"></i></a> |
+                        <a href="{% url 'services:delete' pk=service.id %}" class="btn btn-danger btn-sm"><i
                                 class="now-ui-icons ui-1_simple-remove"></i></a></td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>

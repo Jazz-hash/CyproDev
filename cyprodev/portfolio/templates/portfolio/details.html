@@ -5,22 +5,31 @@
             <dd class="text-center h3">{{object.user.first_name}} {{object.user.last_name}}</dd>
             <div class="row text-center">
                 <div class="col">
-                    <dt c;>Name</dt>
-                    <dd>{{object.name}}</dd>
+                    <dt class="h5 font-weight-bold">Name</dt>
+                    <dd class="h5">{{object.name}}</dd>
                 </div>
                 <div class="col">
-                    <dt>Language</dt>
-                    <dd>{{object.language}}</dd>
+                    <dt class="h5 font-weight-bold">Language</dt>
+                    <dd class="h5">{{object.language}}</dd>
                 </div>
             </div>
             <div class="row text-center">
                 <div class="col">
 
-                    <dt>Description</dt>
-                    <dd>
+                    <dt class="h5 font-weight-bold">Description</dt>
+                    <dd class="h5">
                         {% if object.description %}{{object.description}}
                         {% else %} No description
                         {% endif %}
+                    </dd>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col">
+
+                    <dt class="h5 font-weight-bold">Compilation completed on</dt>
+                    <dd class="h5">
+                        {{object.created}}
                     </dd>
                 </div>
             </div>

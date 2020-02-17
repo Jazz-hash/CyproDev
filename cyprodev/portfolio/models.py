@@ -14,6 +14,8 @@ class Portfolio(models.Model):
     hosted_link = models.URLField(blank=True)
     category = models.ForeignKey(
         Service, on_delete=models.CASCADE, default=None)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True, blank=True)
 
     def __str__(self):
         return self.name

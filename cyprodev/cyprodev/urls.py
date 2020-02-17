@@ -34,6 +34,7 @@ urlpatterns = [
     path('services/', include('services.urls', namespace='services')),
     path('portfolio/', include('portfolio.urls', namespace='portfolio')),
     path('api/user/', include('accounts.api.urls', namespace='accounts-api')),
+    path('api/portfolio/', include('portfolio.api.urls', namespace='portfolio-api')),
 
 ]
 if settings.DEBUG:

@@ -15,6 +15,15 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class PortfolioListView(ListView):
     model = Portfolio
 
+    def get_queryset(self):
+        queryset = super(PortfolioListView, self).get_queryset()
+        if self.request.user.is_superuser:
+            queryset = Portfolio.objects.all()
+        else:
+            queryset = Portfolio.objects.filter(user=self.request.user)
+
+        return queryset
+
     def get_context_data(self, **kwargs):
         context = super(PortfolioListView, self).get_context_data(**kwargs)
         context['head'] = 'Portfolio'
@@ -40,16 +49,6 @@ class PortfolioDetailView(DetailView):
         context = super(PortfolioDetailView, self).get_context_data(**kwargs)
         context['head'] = 'Portfolio'
         context['sub_head'] = 'Details'
-        return context
-
-
-class UnderConstruction(LoginRequiredMixin, TemplateView):
-    template_name = 'portfolio/under.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(UnderConstruction, self).get_context_data(**kwargs)
-        context['head'] = 'Portfolio'
-        context['sub_head'] = 'List'
         return context
 
 
