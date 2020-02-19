@@ -1,15 +1,160 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block body %}
-<div class="card">
-    <div class="card-body">
-        <div class="row">
-            <div class="col-11">
-                <h2 style="font-family: Pacifico;" class="m-2">{{head}} > {{sub_head}}</h2>
+<section class="site-section block__62272" id="next-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5" data-aos="fade-up">
+            <div id="filters" class="filters text-center button-group col-md-7">
+                <button class="btn btn-primary active search_query" data-filter="*">All</button>
+                <button class="btn btn-primary search_query" data-filter=".web">Web Design and
+                    Development</button>
+                <button class="btn btn-primary search_query" data-filter=".design">Graphic Design</button>
+                <button class="btn btn-primary search_query" data-filter=".brand">Animation</button>
             </div>
         </div>
-        <hr>
-
+        <div id="posts" class="row no-gutter" style="position: relative; height: 1495.94px;">
+            <!-- <div class="item web col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4"
+                style="position: absolute; left: 0px; top: 0px;">
+                <a href="portfolio-single.html" class="item-wrap">
+                    <span class="icon-add"></span>
+                    <img class="img-fluid" src="{% static 'static/images/sq_img_1.jpg' %}">
+                </a>
+            </div>
+             <div class="item web col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4"
+                style="position: absolute; left: 379.984px; top: 0px;">
+                <a href="portfolio-single.html" class="item-wrap">
+                    <span class="icon-add"></span>
+                    <img class="img-fluid" src="{% static 'static/images/sq_img_2.jpg' %}">
+                </a>
+            </div>
+            <div class="item brand col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4"
+                style="position: absolute; left: 759.968px; top: 0px;">
+                <a href="portfolio-single.html" class="item-wrap">
+                    <span class="icon-add"></span>
+                    <img class="img-fluid" src="{% static 'static/images/sq_img_3.jpg' %}">
+                </a>
+            </div>
+            <div class="item design col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4"
+                style="position: absolute; left: 0px; top: 373.984px;">
+                <a href="portfolio-single.html" class="item-wrap">
+                    <span class="icon-add"></span>
+                    <img class="img-fluid" src="{% static 'static/images/sq_img_4.jpg' %}">
+                </a>
+            </div> 
+            <div class="item web col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4"
+                style="position: absolute; left: 379.984px; top: 373.984px;">
+                <a href="portfolio-single.html" class="item-wrap">
+                    <span class="icon-add"></span>
+                    <img class="img-fluid" src="{% static 'static/images/sq_img_5.jpg' %}">
+                </a>
+            </div>
+            <div class="item brand col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4"
+                style="position: absolute; left: 759.968px; top: 373.984px;">
+                <a href="portfolio-single.html" class="item-wrap">
+                    <span class="icon-add"></span>
+                    <img class="img-fluid" src="{% static 'static/images/sq_img_6.jpg' %}">
+                </a>
+            </div>
+            <div class="item web col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4"
+                style="position: absolute; left: 0px; top: 747.968px;">
+                <a href="portfolio-single.html" class="item-wrap">
+                    <span class="icon-add"></span>
+                    <img class="img-fluid" src="{% static 'static/images/sq_img_7.jpg' %}">
+                </a>
+            </div>
+            <div class="item design col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4"
+                style="position: absolute; left: 379.984px; top: 747.968px;">
+                <a href="portfolio-single.html" class="item-wrap">
+                    <span class="icon-add"></span>
+                    <img class="img-fluid" src="{% static 'static/images/sq_img_8.jpg' %}">
+                </a>
+            </div>
+            <div class="item web col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4"
+                style="position: absolute; left: 759.968px; top: 747.968px;">
+                <a href="portfolio-single.html" class="item-wrap">
+                    <span class="icon-add"></span>
+                    <img class="img-fluid" src="{% static 'static/images/sq_img_9.jpg' %}">
+                </a>
+            </div>
+            <div class="item design col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4"
+                style="position: absolute; left: 0px; top: 1121.95px;">
+                <a href="portfolio-single.html" class="item-wrap">
+                    <span class="icon-add"></span>
+                    <img class="img-fluid" src="{% static 'static/images/sq_img_10.jpg' %}">
+                </a>
+            </div>
+            <div class="item brand col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4"
+                style="position: absolute; left: 379.984px; top: 1121.95px;">
+                <a href="portfolio-single.html" class="item-wrap">
+                    <span class="icon-add"></span>
+                    <img class="img-fluid" src="{% static 'static/images/sq_img_11.jpg' %}">
+                </a>
+            </div>
+            <div class="item design col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4"
+                style="position: absolute; left: 759.968px; top: 1121.95px;">
+                <a href="portfolio-single.html" class="item-wrap">
+                    <span class="icon-add"></span>
+                    <img class="img-fluid" src="{% static 'static/images/sq_img_12.jpg' %}">
+                </a>
+            </div> -->
+        </div>
     </div>
-</div>
+</section>
 {% endblock body %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        var search_query = '/api/portfolio/search/?query=';
+        var type = '';
+        $('.search_query').on('click', function () {
+            query = this.id;
+
+            if (query == 'all') {
+                getData(search_query);
+            }
+            if (query === 'web') {
+                getData(search_query + 'Web%20Designing');
+            }
+            if (query === 'design') {
+                getData(search_query + 'Web%20Development');
+            }
+        });
+        getData(search_query);
+
+
+
+        function getData(query) {
+            $.ajax({
+                url: query,
+                method: 'GET',
+                success: function (data) {
+                    console.log(data);
+                    console.log(data.length);
+
+                    for (var index = 0; index < data.length; index++) {
+                        const element = data[index]['category']['head'];
+                        console.log(element);
+                        if (element == 'Web Designing' || element == 'Web Development') {
+                            type = 'web';
+                            console.log(type);
+                        }
+                        console.log('-------', index);
+                        var porfolio = '<div class="item ' + type + ' col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4" style = "position: absolute; left: 0px; top: 0px;" > \
+                            <a href="portfolio-single.html" class="item-wrap"> \
+                                <span class="icon-add"></span> \
+                                <img class="img-fluid" src="{% static "static/images/sq_img_1.jpg" %}"> \
+                            </a> \
+                        </div>' ;
+                        $('#posts').append(porfolio);
+                    }
+                },
+                error: function (data) {
+                    console.log('error');
+                }
+            });
+        }
+    });
+
+</script>
+{% endblock scripts %}
