@@ -31,7 +31,7 @@ class Project(models.Model):
     updated = models.DateTimeField(auto_now=True, blank=True)
 
     def __str__(self):
-        return self.subject
+        return self.email
 
     def get_absolute_url(self):
         return reverse('home')

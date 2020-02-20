@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card-body">
+        <dl>
+            <dt>Request By</dt>
+            <dd>{{object.first_name}} {{object.last_name}}</dd>
+            <dt>Email</dt>
+            <dd>{{object.email}}</dd>
+            <dt>Service</dt>
+            <dd>{{object.service}}</dd>
+            <dt>Description</dt>
+            {% if object.message %}
+            <dd>{{object.message}}</dd>
+            {% endif %}
+            <dd>No description available </dd>
+            <dt>Created On</dt>
+            <dd>{{object.created}}</dd>
+        </dl>
+    </div>
+</div>

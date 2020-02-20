@@ -36,19 +36,19 @@
                     <p>Portfolios</p>
                 </a>
             </li>
-            <!-- <li>
-                <a href="./icons.html">
-                    <i class="now-ui-icons education_atom"></i>
-                    <p>Icons</p>
+            <li class="{% if head in 'Contact Requests' %}active {% endif %} ">
+                <a href="{% url 'contact:list' %}">
+                    <i class="now-ui-icons ui-2_chat-round"></i>
+                    <p>Contact Requests</p>
                 </a>
             </li>
-            <li>
-                <a href="./map.html">
-                    <i class="now-ui-icons location_map-big"></i>
-                    <p>Maps</p>
+            <li class="{% if head in 'Project Requests' %}active {% endif %} ">
+                <a href="{% url 'projects' %}">
+                    <i class="now-ui-icons files_single-copy-04"></i>
+                    <p>Project Requests</p>
                 </a>
             </li>
-            <li>
+            <!--<li>
                 <a href="./notifications.html">
                     <i class="now-ui-icons ui-1_bell-53"></i>
                     <p>Notifications</p>
