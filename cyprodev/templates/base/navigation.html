@@ -17,10 +17,15 @@
                     </li>
                     <li><a href="{% url 'about' %}" class="nav-link {% if head in 'About' %}active{% endif %}">About</a>
                     </li>
-                    <li><a href="{% url 'portfolios' %}">Portfolio</a></li>
-                    <li><a href="{% url 'services' %}">Services</a></li>
-                    <li><a href="{% url 'contact' %}">Contact</a></li>
-                    <li><a href="{% url 'start-your-project' %}">Start your project</a></li>
+                    <li><a href="{% url 'portfolios' %}"
+                            class="nav-link {% if head in 'Portfolios' %}active{% endif %}">Portfolio</a></li>
+                    <li><a href="{% url 'services' %}"
+                            class="nav-link {% if head in 'Services' %}active{% endif %}">Services</a></li>
+                    <li><a href="{% url 'contact' %}"
+                            class="nav-link {% if head in 'Contact' %}active{% endif %}">Contact</a></li>
+                    <li><a href="{% url 'start-your-project' %}"
+                            class="nav-link {% if head in 'Start Your Project' %}active{% endif %}">Start your
+                            project</a></li>
 
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'dashboard' %}">Hello {{request.user.username}} !</a></li>

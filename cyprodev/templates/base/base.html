@@ -10,15 +10,23 @@
     {% include 'base/stylesheets.html' %}
 </head>
 
-<body style="background-color: #f8f9fa!important;">
+<body>
     <div id="overlayer"></div>
-    {% include 'base/loader.html' %}
-    <div class="site-wrap bg-light">
+    <div class="loader">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div class="site-wrap">
         {% include 'base/navigation.html' %}
+
         {% include 'base/slider.html' %}
+
         {% block body %}
 
         {% endblock body %}
+
+
         {% include 'base/footer.html' %}
     </div>
     {% include 'base/scripts.html' %}

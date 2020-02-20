@@ -11,7 +11,7 @@
                 <h2 style="font-family: Pacifico;" class="m-2">{{head}} > {{sub_head}}</h2>
             </div>
             <div class="col-1">
-                <a class="btn btn-primary float-right" href="{% url 'portfolio:add' %}"><i class="fa fa-plus"
+                <a class="btn btn-danger float-right" href="{% url 'portfolio:add' %}"><i class="fa fa-plus"
                         aria-hidden="true"></i></a>
             </div>
         </div>
@@ -31,8 +31,8 @@
                     <td scope="row">{{portfolio.name}}</td>
                     <td>{{portfolio.user.first_name}} {{portfolio.user.last_name}}</td>
                     <td>{{portfolio.language}}</td>
-                    <td><a href="{% url 'portfolio:details' pk=portfolio.id %}"
-                            class="btn btn-primary buttons btn-sm"><i class="now-ui-icons education_glasses"></i></a> |
+                    <td><a href="{% url 'portfolio:details' pk=portfolio.id %}" class="btn btn-info buttons btn-sm"><i
+                                class="now-ui-icons education_glasses"></i></a> |
                         {% comment %}<a href="{% url 'portfolio:edit' pk=portfolio.id %}"
                             class="btn btn-secondary btn-sm"><i class="now-ui-icons design-2_ruler-pencil"></i></a> |
                         {% endcomment %}<a href="{% url 'portfolio:delete' pk=portfolio.id %}"
