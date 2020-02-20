@@ -5,7 +5,7 @@ from django.urls import reverse
 
 # Create your models here.
 class Service(models.Model):
-    icon = models.CharField(max_length=20)
+    icon = models.CharField(max_length=50)
     head = models.CharField(max_length=50)
     description = models.TextField(blank=True)
     user = models.ForeignKey(

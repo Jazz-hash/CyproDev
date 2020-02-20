@@ -107,43 +107,28 @@
     $(document).ready(function () {
         var search_query = '/api/portfolio/search/?query=';
         var type = '';
-        $('.search_query').on('click', function () {
-            query = this.id;
-
-            if (query == 'all') {
-                getData(search_query);
-            }
-            if (query === 'web') {
-                getData(search_query + 'Web%20Designing');
-            }
-            if (query === 'design') {
-                getData(search_query + 'Web%20Development');
-            }
-        });
         getData(search_query);
-
-
-
         function getData(query) {
             $.ajax({
                 url: query,
                 method: 'GET',
                 success: function (data) {
-                    console.log(data);
-                    console.log(data.length);
-
                     for (var index = 0; index < data.length; index++) {
                         const element = data[index]['category']['head'];
-                        console.log(element);
                         if (element == 'Web Designing' || element == 'Web Development') {
                             type = 'web';
-                            console.log(type);
                         }
-                        console.log('-------', index);
+                        if (element == 'Graphic Designing') {
+                            type = 'design';
+                        }
+                        if (element == 'Animations') {
+                            type = 'brand';
+
+                        }
                         var porfolio = '<div class="item ' + type + ' col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4" style = "position: absolute; left: 0px; top: 0px;" > \
                             <a href="portfolio-single.html" class="item-wrap"> \
                                 <span class="icon-add"></span> \
-                                <img class="img-fluid" src="{% static "static/images/sq_img_1.jpg" %}"> \
+                                <img class="img-fluid" style="height:300px !important" src="'+ data[index]["porfolio_images"][0]["image"] + '"> \
                             </a> \
                         </div>' ;
                         $('#posts').append(porfolio);

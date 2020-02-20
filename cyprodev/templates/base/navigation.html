@@ -10,7 +10,7 @@
 <header class="site-navbar mt-3" id="top">
     <div class="container-fluid">
         <div class="row align-items-center">
-            <div class="site-logo col-6"><a href="index.html">Cyprodev</a></div>
+            <div class="site-logo col-6"><a href="{% url 'home' %}">Cyprodev</a></div>
             <nav class="mx-auto site-navigation">
                 <ul class="site-menu js-clone-nav d-none d-lg-block">
                     <li><a href="{% url 'home' %}" class="nav-link {% if head in 'Home' %}active{% endif %}">Home</a>
@@ -27,20 +27,6 @@
                     {% else %}
                     <li><a href="{% url 'login' %}">Sign In</a></li>
                     {% endif %}
-
-
-                    <!-- <li class="has-children">
-<a href="services.html">Pages</a>
-<ul class="dropdown">
-<li><a href="services.html">Services</a></li>
-<li><a href="service-single.html">Service Single</a></li>
-<li><a href="blog-single.html">Blog Single</a></li>
-<li><a href="portfolio-single.html">Portfolio Single</a></li>
-<li><a href="testimonials.html">Testimonials</a></li>
-<li><a href="faq.html">Frequently Ask Questions</a></li>
-<li><a href="gallery.html">Gallery</a></li>
-</ul>
-</li> -->
 
                 </ul>
             </nav>
