@@ -1,13 +1,13 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import (
-    DetailView, CreateView, TemplateView)
+    DetailView, CreateView, TemplateView, ListView)
 from django.contrib.auth import get_user_model
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic.edit import FormView
 from .forms import UserForm, UserDetailsForm, ProfileForm
 from django.urls import reverse_lazy, reverse
-from .models import Profile
+from .models import Profile, UserLog
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -30,7 +30,7 @@ class UserRegisterView(FormView):
 
 
 @login_required
-def multiple_forms(request):
+def UserDetailsEditView(request):
     user = get_object_or_404(Profile, user=request.user)
     profile_form = ProfileForm(request.POST or None, instance=user)
     user_form = UserDetailsForm(request.POST or None, instance=request.user)
@@ -56,18 +56,6 @@ def multiple_forms(request):
     })
 
 
-# class UserDetailsEditView(MultiFormsView):
-#     template_name = "accounts/profile.html"
-#     form_classes = {'user': UserForm,
-#                     'profile': ProfileForm,
-#                     }
-
-#     success_urls = {
-#         'user': reverse_lazy('/accounts/login'),
-#         'profile': reverse_lazy('/accounts/login'),
-#     }
-
-
 class ProfileView(LoginRequiredMixin, TemplateView):
     template_name = 'dashboard/user.html'
 
@@ -79,3 +67,29 @@ class ProfileView(LoginRequiredMixin, TemplateView):
         context = super(ProfileView, self).get_context_data(**kwargs)
         context['head'] = 'User Profile'
         return context
+
+
+class UserLogListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
+    model = UserLog
+
+    def get_context_data(self, **kwargs):
+        context = super(UserLogListView, self).get_context_data(**kwargs)
+        context['head'] = 'User Activity'
+        context['sub_head'] = 'List'
+        return context
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+
+class UserLogDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+    model = UserLog
+
+    def get_context_data(self, **kwargs):
+        context = super(UserLogDetailView, self).get_context_data(**kwargs)
+        context['head'] = 'User Activity'
+        context['sub_head'] = 'Details'
+        return context
+
+    def test_func(self):
+        return self.request.user.is_superuser

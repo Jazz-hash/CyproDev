@@ -12,7 +12,7 @@
             </div>
             <div class="col-1">
                 {% if request.user.is_superuser %}
-                <a class="btn btn-danger float-right" href="{% url 'services:add' %}"><i class="fa fa-plus"
+                <a class="btn btn-primary float-right" href="{% url 'services:add' %}"><i class="fa fa-plus"
                         aria-hidden="true"></i></a>
                 {% endif %}
 

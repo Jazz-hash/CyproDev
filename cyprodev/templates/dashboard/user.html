@@ -32,7 +32,7 @@
           {% csrf_token %}
           {{ contact_form|crispy }}
           {{ profile_form }}
-          <input class="btn btn-danger w-100 mt-3" type="submit" value="Update Profile">
+          <input class="btn btn-primary w-100 mt-3" type="submit" value="Update Profile">
         </form>
       </div>
     </div>
@@ -48,7 +48,7 @@
             <img class="avatar border-gray"
               src="{% if not request.user.profile.image %}/media/user-images/user-512.png{% else %}/media/{{request.user.profile.image}}{% endif %}"
               alt="...">
-            <h5 class="title text-danger">{{user.first_name}} {{user.last_name}}</h5>
+            <h5 class="title">{{user.first_name}} {{user.last_name}}</h5>
           </a>
           <p class="description">
             {{user.username}}<br>{{user.email}}

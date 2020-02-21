@@ -25,7 +25,7 @@ class PortfolioPublicListView(TemplateView):
         return context
 
 
-class PortfolioListView(ListView):
+class PortfolioListView(LoginRequiredMixin, ListView):
     model = Portfolio
 
     def get_queryset(self):
@@ -44,7 +44,7 @@ class PortfolioListView(ListView):
         return context
 
 
-class PortfolioDeleteView(DeleteView):
+class PortfolioDeleteView(LoginRequiredMixin, DeleteView):
     model = Portfolio
     select_related = ('images')
 
@@ -55,7 +55,7 @@ class PortfolioDeleteView(DeleteView):
         return context
 
 
-class PortfolioDetailView(DetailView):
+class PortfolioDetailView(LoginRequiredMixin, DetailView):
     model = Portfolio
 
     def get_context_data(self, **kwargs):
@@ -65,7 +65,7 @@ class PortfolioDetailView(DetailView):
         return context
 
 
-class PortfolioCreateView(LoginRequiredMixin, FormUserNeededMixin, CreateView):
+class PortfolioCreateView(LoginRequiredMixin, CreateView):
     form_class = PortfolioForm
     template_name = 'portfolio/portfolio_add.html'
 

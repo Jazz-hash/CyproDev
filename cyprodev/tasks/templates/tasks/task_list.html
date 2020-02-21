@@ -1,0 +1,49 @@
+{% extends 'dashboard/base.html' %}
+{% block graph %}
+<div class="panel-header panel-header-sm">
+</div>
+{% endblock graph %}
+{% block body %}
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-11">
+                <h2 style="font-family: Pacifico;" class="m-2">{{head}} > {{sub_head}}</h2>
+            </div>
+            <div class="col-1">
+                {% if request.user.is_superuser %}
+                <a class="btn btn-primary float-right" href="{% url 'task:add' %}"><i class="fa fa-plus"
+                        aria-hidden="true"></i></a>
+                {% endif %}
+
+            </div>
+        </div>
+        <hr>
+        <table class="table table-striped table-inverse">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Task</th>
+                    <th>Assigned To</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in object_list %}
+                <tr>
+                    <td scope="row">{{task.task}}</td>
+                    <td>{{task.assigned_to.first_name}} {{task.assigned_to.last_name}}</td>
+                    <td><a href="{% url 'task:details' pk=task.id %}" class="btn btn-info buttons btn-sm"><i
+                                class="now-ui-icons education_glasses"></i></a>
+                        {% if request.user.is_superuser %}
+                        | <a href="{% url 'task:edit' pk=task.id %}" class="btn btn-secondary btn-sm"><i
+                                class="now-ui-icons design-2_ruler-pencil"></i></a> |
+                        <a href="{% url 'task:delete' pk=task.id %}" class="btn btn-danger btn-sm"><i
+                                class="now-ui-icons ui-1_simple-remove"></i></a></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock body %}

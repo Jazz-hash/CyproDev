@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from cyprodev.mixins import FormUserNeededMixin, UserOwnerMixin
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView)
 from .models import Service
 from .forms import ServiceModelForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from cyprodev.mixins import FormUserNeededMixin, UserOwnerMixin
 
 # Create your views here.
 

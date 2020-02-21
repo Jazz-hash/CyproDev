@@ -39,6 +39,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('services/', include('services.urls', namespace='services')),
     path('contact/', include('contact.urls', namespace='contact')),
+    path('task/', include('tasks.urls', namespace='task')),
     path('project/', ProjectListView.as_view(), name='projects'),
     path('project/details/<int:pk>/',
          ProjectDetailView.as_view(), name='project_details'),

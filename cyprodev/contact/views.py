@@ -20,7 +20,7 @@ class ContactCreateView(CreateView):
         return context
 
 
-class ContactListView(ListView):
+class ContactListView(LoginRequiredMixin, ListView):
     model = Contact
 
     def get_context_data(self, **kwargs):
@@ -30,7 +30,7 @@ class ContactListView(ListView):
         return context
 
 
-class ContactDetailView(DetailView):
+class ContactDetailView(LoginRequiredMixin, DetailView):
     model = Contact
 
     def get_context_data(self, **kwargs):
@@ -40,7 +40,7 @@ class ContactDetailView(DetailView):
         return context
 
 
-class ProjectDetailView(DetailView):
+class ProjectDetailView(LoginRequiredMixin, DetailView):
     model = Project
 
     def get_context_data(self, **kwargs):
@@ -50,7 +50,7 @@ class ProjectDetailView(DetailView):
         return context
 
 
-class ProjectListView(ListView):
+class ProjectListView(LoginRequiredMixin, ListView):
     model = Project
 
     def get_context_data(self, **kwargs):

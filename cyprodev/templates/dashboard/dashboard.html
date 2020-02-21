@@ -182,96 +182,23 @@
     <div class="card">
       <div class="card-header">
         <h5 class="card-category">All Persons List</h5>
-        <h4 class="card-title"> Employees Stats</h4>
+        <h4 class="card-title">
+          <div class="row">
+            <div class="col-10">
+              Employees Stats
+            </div>
+          </div>
+        </h4>
       </div>
       <div class="card-body">
         <div class="table-responsive">
           <table class="table">
-            <thead class=" text-primary">
-              <th>
-                Name
-              </th>
-              <th>
-                Country
-              </th>
-              <th>
-                City
-              </th>
-              <th class="text-right">
-                Salary
-              </th>
+            <thead class="text-primary">
+              <th>Name</th>
+              <th>Username</th>
             </thead>
-            <tbody>
-              <tr>
-                <td>
-                  Dakota Rice
-                </td>
-                <td>
-                  Niger
-                </td>
-                <td>
-                  Oud-Turnhout
-                </td>
-                <td class="text-right">
-                  $36,738
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Minerva Hooper
-                </td>
-                <td>
-                  Curaçao
-                </td>
-                <td>
-                  Sinaai-Waas
-                </td>
-                <td class="text-right">
-                  $23,789
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Sage Rodriguez
-                </td>
-                <td>
-                  Netherlands
-                </td>
-                <td>
-                  Baileux
-                </td>
-                <td class="text-right">
-                  $56,142
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Doris Greene
-                </td>
-                <td>
-                  Malawi
-                </td>
-                <td>
-                  Feldkirchen in Kärnten
-                </td>
-                <td class="text-right">
-                  $63,542
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Mason Porter
-                </td>
-                <td>
-                  Chile
-                </td>
-                <td>
-                  Gloucester
-                </td>
-                <td class="text-right">
-                  $78,615
-                </td>
-              </tr>
+            <tbody id='users_table'>
+
             </tbody>
           </table>
         </div>
@@ -280,3 +207,32 @@
   </div>
 </div>
 {% endblock body %}
+
+
+{% block scripts %}
+<script>
+  $(document).ready(function () {
+    var users_url = '/api/user/';
+    function getData(users_url) {
+      $.ajax({
+        url: users_url,
+        method: 'GET',
+        success: function (data) {
+          for (var index = 0; index < data.length; index++) {
+            var users = '<tr scope="row"> \
+                          <td>' + data[index]['user']['first_name'] + ' ' + data[index]['user']['last_name'] + '</td> \
+                          <td>'+ data[index]['user']['username'] + '</td> \
+                        </tr>';
+            $('#users_table').append(users);
+          }
+
+        },
+        error: function () {
+          console.log('error');
+        },
+      });
+    }
+    getData(users_url);
+  });
+</script>
+{% endblock scripts %}
