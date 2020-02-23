@@ -1,0 +1,35 @@
+{% extends 'dashboard/base.html' %}
+
+{% block graph %}
+<div class="panel-header panel-header-sm">
+</div>
+{% endblock graph %}
+{% block body %}
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-11">
+                <h2 style="font-family: Pacifico;" class="m-2">{{head}} > {{sub_head}}</h2>
+            </div>
+        </div>
+        <hr>
+        <div class="card">
+            <div class="card-body">
+                <dl>
+                    <dt>Notification</dt>
+                    <dd>{{object.verb}}</dd>
+                    <dt>Task</dt>
+                    <dd><a class="btn btn-primary" onclick="{{ object.mark_as_read }}"
+                            href="{% url 'task:details' pk=object.description %}">Go to task
+                            details <i class="now-ui-icons arrows-1_minimal-right"></i></a></dd>
+                    <dt>Added On</dt>
+                    <dd>{{object.timestamp}}</dd>
+                </dl>
+            </div>
+        </div>
+        <p><a href="{% url 'contact:list' %}" class="text-danger">Back to List</a></p>
+
+    </div>
+</div>
+
+{% endblock body %}

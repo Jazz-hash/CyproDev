@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'contact',
     'portfolio',
     'tasks',
+    'notifications'
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,5 @@ SERVER_EMAIL = 'travellingdiaries2019@gmail.com'
 DEFAULT_FROM_EMAIL = 'travellingdiaries2019@gmail.com'
 EMAIL_HOST_PASSWORD = 'Travel1234'
 EMAIL_USE_TLS = True
+
+DJANGO_NOTIFICATIONS_CONFIG = {'USE_JSONFIELD': True}

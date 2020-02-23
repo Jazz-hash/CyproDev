@@ -1,7 +1,8 @@
 from django import views
 from django.shortcuts import render
-from django.views.generic import (TemplateView)
+from django.views.generic import (TemplateView, DetailView, ListView)
 from django.contrib.auth.mixins import LoginRequiredMixin
+from notifications.models import Notification
 
 
 class Index(TemplateView):
@@ -12,6 +13,29 @@ class Index(TemplateView):
         context['head'] = 'Home'
         context['slider_head'] = 'We Are Cyprodev'
         context['slider_sub_head'] = 'We make your market digitally we make your ideas come true we build your startups we design we develop'
+        return context
+
+
+class NotificationDetailView(DetailView):
+    model = Notification
+    template_name = "dashboard/notifications_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(NotificationDetailView,
+                        self).get_context_data(**kwargs)
+        context['head'] = 'Notification'
+        context['sub_head'] = 'Details'
+        return context
+
+
+class NotificationListView(ListView):
+    model = Notification
+    template_name = "dashboard/notifications.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(NotificationListView, self).get_context_data(**kwargs)
+        context['head'] = 'Notification'
+        context['sub_head'] = 'List'
         return context
 
 

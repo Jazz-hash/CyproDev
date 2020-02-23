@@ -91,89 +91,20 @@
   <div class="col-md-6">
     <div class="card  card-tasks">
       <div class="card-header ">
-        <h5 class="card-category">Backend development</h5>
+        <h5 class="card-category">Users Management</h5>
         <h4 class="card-title">Tasks</h4>
       </div>
       <div class="card-body ">
-        <div class="table-full-width table-responsive">
+        <div class="table-responsive">
           <table class="table">
-            <tbody>
-              <tr>
-                <td>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" checked>
-                      <span class="form-check-sign"></span>
-                    </label>
-                  </div>
-                </td>
-                <td class="text-left">Sign contract for "What are conference organizers
-                  afraid of?"</td>
-                <td class="td-actions text-right">
-                  <button type="button" rel="tooltip" title=""
-                    class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
-                    <i class="now-ui-icons ui-2_settings-90"></i>
-                  </button>
-                  <button type="button" rel="tooltip" title=""
-                    class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
-                    <i class="now-ui-icons ui-1_simple-remove"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox">
-                      <span class="form-check-sign"></span>
-                    </label>
-                  </div>
-                </td>
-                <td class="text-left">Lines From Great Russian Literature? Or E-mails
-                  From My Boss?</td>
-                <td class="td-actions text-right">
-                  <button type="button" rel="tooltip" title=""
-                    class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
-                    <i class="now-ui-icons ui-2_settings-90"></i>
-                  </button>
-                  <button type="button" rel="tooltip" title=""
-                    class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
-                    <i class="now-ui-icons ui-1_simple-remove"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" checked>
-                      <span class="form-check-sign"></span>
-                    </label>
-                  </div>
-                </td>
-                <td class="text-left">Flooded: One year later, assessing what was lost
-                  and what was found when a
-                  ravaging rain swept through metro Detroit
-                </td>
-                <td class="td-actions text-right">
-                  <button type="button" rel="tooltip" title=""
-                    class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
-                    <i class="now-ui-icons ui-2_settings-90"></i>
-                  </button>
-                  <button type="button" rel="tooltip" title=""
-                    class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
-                    <i class="now-ui-icons ui-1_simple-remove"></i>
-                  </button>
-                </td>
-              </tr>
+            <thead class="text-primary">
+              <th>Task</th>
+              <th>Assigned to</th>
+            </thead>
+            <tbody id='tasks_table'>
+
             </tbody>
           </table>
-        </div>
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          <i class="now-ui-icons loader_refresh spin"></i> Updated 3 minutes ago
         </div>
       </div>
     </div>
@@ -213,7 +144,8 @@
 <script>
   $(document).ready(function () {
     var users_url = '/api/user/';
-    function getData(users_url) {
+    var task_url = '/api/tasks/';
+    function getUserData(users_url) {
       $.ajax({
         url: users_url,
         method: 'GET',
@@ -232,7 +164,27 @@
         },
       });
     }
-    getData(users_url);
+    function getTaskData(task_url) {
+      $.ajax({
+        url: task_url,
+        method: 'GET',
+        success: function (data) {
+          for (var index = 0; index < data.length; index++) {
+            var tasks = '<tr scope="row" style="height:48px;"> \
+                          <td>' + data[index]['task'] + '</td> \
+                          <td>'+ data[index]['assigned_to']['first_name'] + ' ' + data[index]['assigned_to']['last_name'] + '</td> \
+                        </tr>';
+            $('#tasks_table').append(tasks);
+          }
+
+        },
+        error: function () {
+          console.log('error');
+        },
+      });
+    }
+    getUserData(users_url);
+    getTaskData(task_url);
   });
 </script>
 {% endblock scripts %}

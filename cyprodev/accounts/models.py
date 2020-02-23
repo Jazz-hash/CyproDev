@@ -5,6 +5,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from notifications.signals import notify
 
 
 class Profile(models.Model):
@@ -35,6 +36,7 @@ class UserLog(models.Model):
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
+        notify.send(instance, recipient=instance, verb='was saved')
 
 
 @receiver(post_save, sender=User)

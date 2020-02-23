@@ -26,7 +26,7 @@ class TasksListView(LoginRequiredMixin, ListView):
         return queryset
 
 
-class TasksDetailView(LoginRequiredMixin,DetailView):
+class TasksDetailView(LoginRequiredMixin, DetailView):
     model = Task
 
     def get_context_data(self, **kwargs):
@@ -36,7 +36,7 @@ class TasksDetailView(LoginRequiredMixin,DetailView):
         return context
 
 
-class TasksDeleteView(LoginRequiredMixin,DeleteView):
+class TasksDeleteView(LoginRequiredMixin, DeleteView):
     model = Task
 
     def get_context_data(self, **kwargs):

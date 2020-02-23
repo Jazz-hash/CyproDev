@@ -23,7 +23,7 @@ from contact.views import (
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
 from portfolio.views import PortfolioPublicListView
-
+import notifications.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -47,6 +47,15 @@ urlpatterns = [
     path('api/user/', include('accounts.api.urls', namespace='accounts-api')),
     path('api/portfolio/', include('portfolio.api.urls', namespace='portfolio-api')),
     path('api/service/', include('services.api.urls', namespace='service-api')),
+    path('api/tasks/', include('tasks.api.urls', namespace='task-api')),
+
+    path('inbox/notifications/',
+         include(notifications.urls, namespace='notifications')),
+    path('notifications/detail/<int:pk>',
+         views.NotificationDetailView.as_view(), name="notify_details"),
+    path('notifications/',
+         views.NotificationListView.as_view(), name="notify"),
+
 
 ]
 if settings.DEBUG:
