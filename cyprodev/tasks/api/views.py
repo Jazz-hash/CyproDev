@@ -10,6 +10,6 @@ class TaskListApiView(generics.ListAPIView):
     queryset = Task.objects.order_by('-created')[:5]
 
 
-class TaskDeleteApiView(generics.RetrieveDestroyAPIView):
+class TaskDeleteApiView(generics.DestroyAPIView):
     serializer_class = TaskDisplaySerializer
     queryset = Task.objects.all()
