@@ -8,3 +8,8 @@ class TaskListApiView(generics.ListAPIView):
     serializer_class = TaskDisplaySerializer
     permission_classes = [permissions.IsAuthenticated]
     queryset = Task.objects.order_by('-created')[:5]
+
+
+class TaskDeleteApiView(generics.RetrieveDestroyAPIView):
+    serializer_class = TaskDisplaySerializer
+    queryset = Task.objects.all()

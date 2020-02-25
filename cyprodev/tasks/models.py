@@ -3,6 +3,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from notifications.signals import notify
+from django.urls import reverse
 
 # Create your models here.
 
@@ -19,6 +20,9 @@ class Task(models.Model):
 
     def __str__(self):
         return self.task
+
+    def get_absolute_url(self):
+        return reverse('task:details', kwargs={'pk': self.pk})
 
 
 @receiver(post_save, sender=Task)

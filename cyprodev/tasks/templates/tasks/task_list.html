@@ -37,8 +37,9 @@
                         {% if request.user.is_superuser %}
                         | <a href="{% url 'task:edit' pk=task.id %}" class="btn btn-secondary btn-sm"><i
                                 class="now-ui-icons design-2_ruler-pencil"></i></a> |
-                        <a href="{% url 'task:delete' pk=task.id %}" class="btn btn-danger btn-sm"><i
-                                class="now-ui-icons ui-1_simple-remove"></i></a></td>
+                        <a href="{% url 'task:delete' pk=task.id %}" class="deleteTask btn btn-danger btn-sm"><i
+                                class="now-ui-icons ui-1_simple-remove"></i></a>
+                    </td>
                     {% endif %}
                 </tr>
                 {% endfor %}

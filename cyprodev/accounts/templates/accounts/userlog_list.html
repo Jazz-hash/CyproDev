@@ -28,10 +28,11 @@
                 <tr>
                     <td scope="row">{{log.user.first_name}} {{log.user.last_name}}</td>
                     <td>
-                        {% if log.login_time %}
+                        {% if log.login_time and log.logout_time %}
+                        Login - Logout
+                        {% elif log.login_time %}
                         Login
-                        {% endif %}
-                        {% if log.logout_time %}
+                        {% elif log.logout_time %}
                         Logout
                         {% endif %}
                     </td>
