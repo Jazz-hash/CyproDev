@@ -1,123 +1,568 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block body %}
-<section class="site-section bg-light about-us-section" id="next-section">
-    <div class="container">
-        <div class="row mb-5 pt-0 site-section">
-            <div class="col-md-6 align-self-center">
-                <h3 class="section-title-sub text-primary">About Us</h3>
-                <h2 class="section-title mb-4">Who Are We Guys</h2>
-                <p>Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero
-                    dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum
-                    repudiandae.</p>
-                <p>Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero
-                    dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum
-                    repudiandae.</p>
-                <p class="mt-4"><a href="#" class="spepcial_link">Read more about us</a></p>
-            </div>
-            <div class="col-md-5 ml-auto img-overlap">
-                <div class="img-1"><img src="{% static 'static/images/sq_img_6.jpg' %}" alt="Image"
-                        class="img-fluid img-shadow">
-                </div>
-                <div class="img-2"><img src="{% static 'static/images/sq_img_10.jpg' %}" alt="Image"
-                        class="img-fluid img-shadow">
-                </div>
-            </div>
-        </div>
-        <div class="row pb-0 border-top pt-5 block__19738 section-counter">
-            <div class="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
-                <div class="d-flex align-items-center justify-content-center mb-2">
-                    <span class="icon-line-mobile mr-3"></span>
-                    <strong class="number" data-number="2393">0</strong>
-                </div>
-                <span class="caption">Completed Projects</span>
-            </div>
-            <div class="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
-                <div class="d-flex align-items-center justify-content-center mb-2">
-                    <span class="icon-line-lightbulb mr-3"></span>
-                    <strong class="number" data-number="54">0</strong>
-                </div>
-                <span class="caption">Winners &amp; Awards</span>
-            </div>
-            <div class="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
-                <div class="d-flex align-items-center justify-content-center mb-2">
-                    <span class="icon-line-trophy mr-3"></span>
-                    <strong class="number" data-number="120">0</strong>
-                </div>
-                <span class="caption">Number of Team</span>
-            </div>
-            <div class="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
-                <div class="d-flex align-items-center justify-content-center mb-2">
-                    <span class="icon-line-puzzle mr-3"></span>
-                    <strong class="number" data-number="550">0</strong>
-                </div>
-                <span class="caption">Line of Codes</span>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section class="site-section services-section bg-light block__62849" id="services-section"
-    style="background-color: #f8f9fa!important;">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-12 text-center" data-aos="fade">
-                <h3 class="section-title-sub text-primary">Our Services</h3>
-                <h2 class="section-title mb-3">Services</h2>
+    <section class="hero section-padding pb-0" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="offset-lg-2 col-lg-8 text-center mb-80">
+                    <h4 class="extra-text">We Are <span>Awesome</span> Agency.</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type specimen book.</p>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="mission">
+
+                        <div class="section-head mb-30">
+                            <h4><span>Our</span><br>
+                                Mission
+                            </h4>
+                        </div>
+
+                        <p>We’re full service which means we’ve got you covered on design and content right through to
+                            digital. You’ll form a lasting relationship with us, collaboration is central to everything
+                            we do. We’ll push you out of your comfort zone from time-to-time, but this is where you’ll
+                            shine. Bottom line is we want you to succeed at Faculty We’re full service which means we’ve
+                            got you covered on design and content right through to digital.</p>
+
+                        <a class="vid" href="https://vimeo.com/127203262">
+                            <i class="icofont icofont-ui-play"></i>
+                            <span class="small-text">Watch Our Story</span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="skills">
+
+                        <div class="prog-item">
+                            <p>Branding</p>
+                            <div class="skills-progress"><span data-value="80%" style="width: 80%;"></span></div>
+                        </div>
+                        <div class="prog-item">
+                            <p>Web Design</p>
+                            <div class="skills-progress"><span data-value="95%" style="width: 95%;"></span></div>
+                        </div>
+                        <div class="prog-item">
+                            <p>Graphic Design</p>
+                            <div class="skills-progress"><span data-value="85%"></span></div>
+                        </div>
+                        <div class="prog-item">
+                            <p>Development</p>
+                            <div class="skills-progress"><span data-value="90%"></span></div>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
-        <div class="row">
-            <div class="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5">
-                <a class="block__16443 text-center d-block">
-                    <span class="custom-icon mx-auto"><span class="icon-line-tools d-block"></span></span>
-                    <h3>Graphic Design</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit facilis, pariatur harum
-                        labore aperiam assumenda.</p>
-                </a>
-            </div>
-            <div class="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5">
-                <a class="block__16443 text-center d-block">
-                    <span class="custom-icon mx-auto"><span class="icon-code d-block"></span></span>
-                    <h3>Web Development</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit facilis, pariatur harum
-                        labore aperiam assumenda.</p>
-                </a>
-            </div>
-            <div class="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5">
-                <a class="block__16443 text-center d-block">
-                    <span class="custom-icon mx-auto"><span class="icon-line-presentation d-block"></span></span>
-                    <h3>Digital Marketing</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit facilis, pariatur harum
-                        labore aperiam assumenda.</p>
-                </a>
+
+        <div class="feat bg-gray pt-80 pb-50 mt-80">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-4">
+                        <div class="item">
+                            <span class="icon"><i class="icofont icofont-brand-copy"></i></span>
+                            <h6>Branding</h6>
+                            <p>Branding plays a key role in helping your company establish a unique presence in the
+                                marketplace, whilst differentiating your business from its competition. Let’s give your
+                                brand a new look!</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="item">
+                            <span class="icon"><i class="icofont icofont-chart-pie-alt"></i></span>
+                            <h6>Development</h6>
+                            <p>Custom programming for most complex functions you can think. No more headaches! Focus on
+                                your business and let it grow fast!</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="item">
+                            <span class="icon"><i class="icofont icofont-chart-histogram-alt"></i></span>
+                            <h6>Marketing</h6>
+                            <p>Our pioneering combination of traditional marketing, search marketing and social media to
+                                help you generate business, to improve direct website traffic, brand buzz and search
+                                engine rankings. </p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 text-center">
-                <a href="services.html" class="btn btn-primary btn-md">View All Services</a>
+    </section>
+
+    <div class="quote bg-img section-padding" data-overlay-dark="8" data-background="img/quoteimg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="offset-lg-2 col-lg-8 text-center">
+                    <p><span class="icon"><i class="icofont icofont-quote-left"></i></span>People should pursue what
+                        they're passionate about. That will make them happier than pretty much anything else.<span
+                            class="icon"><i class="icofont icofont-quote-right"></i></span></p>
+                    <h5>Elon Musk</h5>
+                    <h6>CEO, and lead designer of SpaceX</h6>
+                </div>
             </div>
         </div>
     </div>
-</section>
-<section class="site-section bg-light" id="next-section">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 mb-5 mb-lg-0">
-                <a data-fancybox data-ratio="2" href="https://vimeo.com/317571768" class="block__96788">
-                    <span class="play-icon"><span class="icon-play"></span></span>
-                    <img src="{% static 'static/images/sq_img_6.jpg' %}" alt="Image" class="img-fluid img-shadow">
-                </a>
+
+    <section class="portfolio section-padding" data-scroll-index="2">
+        <div class="container">
+            <div class="row">
+
+                <div class="section-head col-sm-12">
+                    <h4>
+                        <span>Our</span><br> Portfolio
+                    </h4>
+                </div>
+
+                <!-- filter links -->
+                <div class="filtering col-sm-12">
+                    <span data-filter='*' class="active">All</span>
+                    <span data-filter='.brand'>Brand</span>
+                    <span data-filter='.web'>Design</span>
+                    <span data-filter='.graphic'>Graphic</span>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!-- gallery -->
+                <div class="gallery text-center full-width">
+
+                    <!-- gallery item -->
+                    <div class="col-md-4 items graphic">
+                        <div class="item-img">
+                            <img src="{% static 'static/img/portfolio/1.jpg' %}" alt="image">
+                            <div class="item-img-overlay valign">
+                                <div class="overlay-info full-width vertical-center">
+                                    <h6>Crearive Design</h6>
+                                </div>
+                                <a href="portfolio-single.html">
+                                    <i class="icofont icofont-image"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- gallery item -->
+                    <div class="col-md-8 items web">
+                        <div class="item-img">
+                            <img src="{% static 'static/img/portfolio/2.jpg' %}" alt="image">
+                            <div class="item-img-overlay valign">
+                                <div class="overlay-info full-width vertical-center">
+                                    <h6>Crearive Design</h6>
+                                </div>
+                                <a href="portfolio-single.html">
+                                    <i class="icofont icofont-image"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- gallery item -->
+                    <div class="col-md-4 items brand">
+                        <div class="item-img">
+                            <img src="{% static 'static/img/portfolio/3.jpg' %}" alt="image">
+                            <div class="item-img-overlay valign">
+                                <div class="overlay-info full-width vertical-center">
+                                    <h6>Crearive Design</h6>
+                                </div>
+                                <a href="portfolio-single.html">
+                                    <i class="icofont icofont-image"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- gallery item -->
+                    <div class="col-md-4 items graphic">
+                        <div class="item-img">
+                            <img src="{% static 'static/img/portfolio/4.jpg' %}" alt="image">
+                            <div class="item-img-overlay valign">
+                                <div class="overlay-info full-width vertical-center">
+                                    <h6>Crearive Design</h6>
+                                </div>
+                                <a href="portfolio-single.html">
+                                    <i class="icofont icofont-image"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- gallery item -->
+                    <div class="col-md-4 items web">
+                        <div class="item-img">
+                            <img src="{% static 'static/img/portfolio/5.jpg' %}" alt="image">
+                            <div class="item-img-overlay valign">
+                                <div class="overlay-info full-width vertical-center">
+                                    <h6>Crearive Design</h6>
+                                </div>
+                                <a href="portfolio-single.html">
+                                    <i class="icofont icofont-image"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- gallery item -->
+                    <div class="col-md-8 items brand">
+                        <div class="item-img">
+                            <img src="{% static 'static/img/portfolio/6.jpg' %}" alt="image">
+                            <div class="item-img-overlay valign">
+                                <div class="overlay-info full-width vertical-center">
+                                    <h6>Crearive Design</h6>
+                                </div>
+                                <a href="portfolio-single.html">
+                                    <i class="icofont icofont-image"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- gallery item -->
+                    <div class="col-md-4 items web">
+                        <div class="item-img">
+                            <img src="{% static 'static/img/portfolio/7.jpg' %}" alt="image">
+                            <div class="item-img-overlay valign">
+                                <div class="overlay-info full-width vertical-center">
+                                    <h6>Crearive Design</h6>
+                                </div>
+                                <a href="portfolio-single.html">
+                                    <i class="icofont icofont-image"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clear-fix"></div>
+
+                </div>
+
             </div>
-            <div class="col-lg-5 ml-auto">
-                <h3 class="section-title-sub text-primary">Watch the video</h3>
-                <h2 class="section-title mb-3">We Are Web Agency</h2>
-                <p class="lead">Eveniet voluptatibus voluptates suscipit minima, cum voluptatum ut dolor, sed
-                    facere corporis qui, ea quisquam quis odit minus nulla vitae. Sit, voluptatem.</p>
-                <p>Ipsum harum assumenda in eum vel eveniet numquam, cumque vero vitae enim cupiditate deserunt
-                    eligendi officia modi consectetur. Expedita tempora quos nobis earum hic ex asperiores
-                    quisquam optio nostrum sit!</p>
+        </div>
+    </section>
+
+    <!-- End Portfolio ====
+    	======================================= -->
+
+
+    <!-- =====================================
+    	==== Start Numbers -->
+
+    <div class="numbers section-padding bg-img" data-overlay-dark="6" data-background="{% static 'static/img/2.jpg' %}">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="item text-center mb-md50">
+                        <span class="icon"><i class="icofont icofont-users-alt-3"></i></span>
+                        <h2 class="count">368</h2>
+                        <h6>Happy Clients</h6>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="item text-center mb-md50">
+                        <span class="icon"><i class="icofont icofont-briefcase-alt-2"></i></span>
+                        <h2 class="count">937</h2>
+                        <h6>Projects Compleated</h6>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="item text-center mb-sm50">
+                        <span class="icon"><i class="icofont icofont-brainstorming"></i></span>
+                        <h2 class="count">438</h2>
+                        <h6>Business Partners</h6>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="item text-center">
+                        <span class="icon"><i class="icofont icofont-growth"></i></span>
+                        <h2 class="count">5946</h2>
+                        <h6>Liens Of Code</h6>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-</section>
+
+    <!-- End Numbers ====
+    	======================================= -->
+
+
+    <!-- =====================================
+    	==== Start Services -->
+
+    <section class="services section-padding pb-70">
+        <div class="container">
+            <div class="row">
+
+                <div class="section-head col-sm-12">
+                    <h4>
+                        <span>Awesome</span><br> Top Features
+                    </h4>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="item">
+                        <span class="icon"><i class="icofont icofont-laptop"></i></span>
+                        <h6>Creative Design</h6>
+                        <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has
+                            been the industry's </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="item">
+                        <span class="icon"><i class="icofont icofont-globe-alt"></i></span>
+                        <h6>User Experience</h6>
+                        <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has
+                            been the industry's </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="item">
+                        <span class="icon"><i class="icofont icofont-rocket-alt-2"></i></span>
+                        <h6>Customizability</h6>
+                        <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has
+                            been the industry's </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="item">
+                        <span class="icon"><i class="icofont icofont-image"></i></span>
+                        <h6>Retina Ready</h6>
+                        <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has
+                            been the industry's </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="item">
+                        <span class="icon"><i class="icofont icofont-samsung-galaxy"></i></span>
+                        <h6>Fully Responsive</h6>
+                        <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has
+                            been the industry's </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="item">
+                        <span class="icon"><i class="icofont icofont-ui-settings"></i></span>
+                        <h6>Custom Support</h6>
+                        <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has
+                            been the industry's </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="serv-tabs section-padding bg-img" data-overlay-dark="7" data-background="{% static 'static/img/homeservices.jpg' %}">
+        <div class="container">
+            <div class="row">
+
+                <div class="section-head col-sm-12">
+                    <h4>
+                        <span>Our</span><br> Services
+                    </h4>
+                </div>
+
+                <div class="tabs col-sm-12">
+
+                    <div class="content">
+                        <div id="tab-1-content" class="tab-item curent">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="item bord">
+                                        <p>Providing delightful user experience in the macro and micro details of the
+                                            design. Delivering user interface design services to create user-experience
+                                            and interaction with your system. We develop highly flexible,
+                                            scalable, responsive, and user-friendly applications for all platforms. With
+                                            use of various tools and improved level of interaction of users with
+                                            interface; appealing, readable and convenient designs are confirmed.
+                                            For custom web, softwares or mobile applications design. We design what you
+                                            think.We understand your needs for business and create the design
+                                            accordingly that suits your work as per today's industrial trends.
+                                            With the timely deliverance, all time support and help you grow your
+                                            business considering the target audience by giving them an amazing visual
+                                            experience on a website.</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="item spcial">
+                                        <p>
+                                            "There are three responses to a piece of design – yes, no, and WOW! Wow is
+                                            the one we aim for."<br />
+                                            <br /> 1) Innovative UI/UX design for web and mobile applications<br /> 2)
+                                            User-friendly and robust web applications designs<br /> 3) Creative team
+                                            works to develop memorable user-experiences<br /> 4) Dedicated
+                                            designers to work full-time/part-time/hourly based as suitable to you<br />
+                                            5) Result oriented web design services</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-2-content" class="tab-item">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="item bord">
+                                        <p>A brand is all about it being recognized by masses with its uniqueness. By
+                                            creating a unique suitable name and logo you can mark your brand presence in
+                                            the market! Branding if done right, can make customers identify
+                                            your brand and understand who you are and what you have to offer. To build
+                                            the true image of your brand you need to get branding done the right way!
+                                            Here at Tronsit we sincerely understand your brand and grow
+                                            its sophisticated image in the market. Tronsit provides you with the best
+                                            branding solutions and services extending from logo designing to all above
+                                            the market branding techniques. We stock your brand to convey
+                                            its story!
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="item spcial">
+                                        <p>"Let's give your business a world wide presence."
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-3-content" class="tab-item">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="item bord">
+                                        <p>Want to increase your business sales by a massive 17.5%? Haven’t thought
+                                            about getting a website yet just because you think that your business
+                                            doesn’t need it? Hold on right there! You’re missing out on something
+                                            big! The World Wide Web has massively grown to over a billion websites,
+                                            1,518,207,412! Massive isn’t it? 51% of the world’s population today,
+                                            actively uses the internet to search, make sales and get entertained.
+                                            Out of this 95%, online users judge a business by looking at its website,
+                                            especially the mobile responsive versions. Another astonishing report
+                                            reveals that mobile e-commerce is now responsible for 67.2% of
+                                            sales conversions which is $2.32 trillion globally! A website can
+                                            dramatically increase brand awareness and generate sale conversions. With
+                                            such incredible internet statistics, we are sure you might now be thinking
+                                            of getting a website, isn’t it? At Cyprodev, we offer pitch-perfect web
+                                            experiences for your business to grow! Here is what you get:
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="item spcial">
+                                        <p>“A successful website does three things: It attracts the right kinds of
+                                            visitors. Guides them to the main services or product you offer. Collect
+                                            Contact details for future ongoing relation.”<br />
+                                            <br /> 1) Well-developed, publicly accessible Business Websites to mark your
+                                            aim in consumer’s minds.
+                                            <br /> 2) Hub of conversions; Ecommerce Solutions with dynamic features and
+                                            responsive modules.
+                                            <br /> 3) Microsites with independent URLs to serve your campaigns and
+                                            marketing strategies
+                                            <br /> 4) A brand Diary; Innovation Blog templates for your websites to
+                                            foster client-business relationships.
+                                            <br /> 5) Responsive Web Applications to best fit your client’s screens and
+                                            derive conversions via well-coded interfaces.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-4-content" class="tab-item">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="item bord">
+                                        <p>"Mediocre marketers think in terms of campaigns. Great marketers think in
+                                            terms of growth frameworks."<br /><br /> With how accessible the internet is
+                                            today, would you believe me if I told you the number of people
+                                            who go online every day is still increasing? It is. In fact, "constant"
+                                            internet usage among adults increased by 5% in just the last three years,
+                                            according to a research. And although we say it a lot, the way
+                                            people shop and buy really has changed along with it -- meaning offline
+                                            marketing isn't as effective as it used to be. 59% business owners brag
+                                            about using social media to provide customer support to their customers
+                                            and potential prospects. So much to do, isn’t it? We feel your pain but are
+                                            surely hare too help! By becoming part of cyprodev, you can get absolute
+                                            customised digital marketing solutions without any hassle.
+                                            Here is what you get:</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="item spcial">
+                                        <p>
+                                            1) Planning and implementation of expert Social Media Marketing strategies
+                                            for your business to mark an active positive impression
+                                            <br /> 2) Strategy-based Content Creation by designing a fine mix of
+                                            audio-visual and text-based series for social media and ad copies.
+                                            <br /> 3) Social Media Optimisation to increase favourable organic traffic
+                                            and lead conversion by targeting the right audience on social handles.
+                                            <br /> 4) Cost-effective and audience-centred Media Buying to make the best
+                                            out of online ads by staying in the budget plan.
+                                            <br /> 5) Effective ad campaigns for Search Engine Marketing to create your
+                                            brand awareness among search engine traffic.
+                                            <br /> 6) Audience engagement, crisis management, social media customer care
+                                            for constructive Community Management.
+                                            <br /> 7) Strategies to utilise digital marketing techniques for Brand
+                                            Building.
+                                            <br /> 8) Better Lead Generation plans for adding value for the business.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="tabs-icon row">
+
+                        <div id="tab-1" class="col-md-3 col-sm-6 active item">
+                            <div>
+                                <span class="icon"><i class="icofont icofont-laptop-alt"></i></span>
+                                <h6>Web Design</h6>
+                            </div>
+                        </div>
+
+                        <div id="tab-2" class="col-md-3 col-sm-6 item">
+                            <div>
+                                <span class="icon"><i class="icofont icofont-brand-htc"></i></span>
+                                <h6>Branding</h6>
+                            </div>
+                        </div>
+
+                        <div id="tab-3" class="col-md-3 col-sm-6 item">
+                            <div>
+                                <span class="icon"><i class="icofont icofont-idea"></i></span>
+                                <h6>Development</h6>
+                            </div>
+                        </div>
+
+                        <div id="tab-4" class="col-md-3 col-sm-6 item">
+                            <div>
+                                <span class="icon"><i class="icofont icofont-touch"></i></span>
+                                <h6>Marketing</h6>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="pt-50 text-center">
+                <a href="services.html">
+                    <button class="btn btn-primary">See More</button>
+                </a>
+            </div>
+        </div>
+
+    </section>
 {% endblock body %}

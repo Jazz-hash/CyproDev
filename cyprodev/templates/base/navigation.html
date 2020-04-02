@@ -1,43 +1,53 @@
-<div class="site-mobile-menu site-navbar-target">
-    <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-            <span class="icon-close2 js-menu-toggle"></span>
+{% load static %}
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+
+        <!-- Logo -->
+        <a class="logo" href="{% url 'home' %}">
+            <img src="{% static 'static/img/logo-light.png' %}" alt="logo">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"><i class="fas fa-bars"></i></span>
+        </button>
+
+        <!-- navbar links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link {% if head in 'Home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if head in 'About' %}active{% endif %}" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if head in 'Portfolios' %}active{% endif %}"
+                        href="{% url 'portfolios' %}">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if head in 'Services' %}active{% endif %}"
+                        href="{% url 'services' %}">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if head in 'Contact' %}active{% endif %}"
+                        href="{% url 'contact' %}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if head in 'Start Your Project' %}active{% endif %}"
+                        href="{% url 'start-your-project' %}">Start Your Project</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'dashboard' %}">Hello {{request.user.username}} !</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Sign In</a>
+                </li>
+                {% endif %}
+
+            </ul>
         </div>
     </div>
-    <div class="site-mobile-menu-body"></div>
-</div>
-
-<header class="site-navbar mt-3" id="top">
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <div class="site-logo col-6"><a href="{% url 'home' %}">Cyprodev</a></div>
-            <nav class="mx-auto site-navigation">
-                <ul class="site-menu js-clone-nav d-none d-lg-block">
-                    <li><a href="{% url 'home' %}" class="nav-link {% if head in 'Home' %}active{% endif %}">Home</a>
-                    </li>
-                    <li><a href="{% url 'about' %}" class="nav-link {% if head in 'About' %}active{% endif %}">About</a>
-                    </li>
-                    <li><a href="{% url 'portfolios' %}"
-                            class="nav-link {% if head in 'Portfolios' %}active{% endif %}">Portfolio</a></li>
-                    <li><a href="{% url 'services' %}"
-                            class="nav-link {% if head in 'Services' %}active{% endif %}">Services</a></li>
-                    <li><a href="{% url 'contact' %}"
-                            class="nav-link {% if head in 'Contact' %}active{% endif %}">Contact</a></li>
-                    <li><a href="{% url 'start-your-project' %}"
-                            class="nav-link {% if head in 'Start Your Project' %}active{% endif %}">Start your
-                            project</a></li>
-
-                    {% if user.is_authenticated %}
-                    <li><a href="{% url 'dashboard' %}">Hello {{request.user.username}} !</a></li>
-                    {% else %}
-                    <li><a href="{% url 'login' %}">Sign In</a></li>
-                    {% endif %}
-
-                </ul>
-            </nav>
-            <div class="col-6 site-burger-menu d-block d-lg-none text-right">
-                <a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a>
-            </div>
-        </div>
-    </div>
-</header>
+</nav>

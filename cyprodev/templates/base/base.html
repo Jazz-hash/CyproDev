@@ -1,5 +1,4 @@
 {% load static %}
-{% load notifications_tags %}
 <!doctype html>
 <html lang="en">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -13,24 +12,17 @@
 </head>
 
 <body>
-    <div id="overlayer"></div>
-    <div class="loader">
-        <div class="spinner-border text-primary" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-    <div class="site-wrap">
-        {% include 'base/navigation.html' %}
 
-        {% include 'base/slider.html' %}
+    {% include 'base/navigation.html' %}
 
-        {% block body %}
+    {% include 'base/header.html' %}
 
-        {% endblock body %}
+    {% block body %}
+
+    {% endblock body %}
 
 
-        {% include 'base/footer.html' %}
-    </div>
+    {% include 'base/footer.html' %}
     {% include 'base/scripts.html' %}
 
     {% block scripts %}

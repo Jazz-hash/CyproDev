@@ -1,26 +1,33 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block body %}
-<section class="site-section services-section bg-light block__62849" id="next-section">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-12 text-center" data-aos="fade">
-                <h3 class="section-title-sub text-primary">Our Services</h3>
-                <h2 class="section-title mb-3">Services</h2>
-            </div>
-        </div>
-        <div class="row">
-            {% for service in object_list %}
-            <div class="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5">
-                <a class="block__16443 text-center d-block " style="background-color: #f8f8f8;">
-                    <span class="custom-icon mx-auto"><span class="{{service.icon}} d-block"></span></span>
-                    <h3>{{service.head}}</h3>
-                    <p>{{service.description}}</p>
-                </a>
-            </div>
-            {% endfor %}
-        </div>
 
+<section class="hero sectikon-padding mt-80" data-scroll-index="1">
+    <div class="feat bg-gray pt-80 pb-50 mt-80">
+        <div class="container">
+            <div class="row">
+                {% for service in object_list %}
+                <div class="col-lg-4">
+                    <div class="item">
+                        <span class="icon"><i class="icofont {{service.icon}}"></i></span>
+                        <h6>
+                            <a href="digitalmarketing.html">
+                                {{service.head}}
+                            </a>
+                        </h6>
+                        <p>{{service.description}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 </section>
+
+
+
+<div class="row">
+
+</div>
+
 {% endblock body %}

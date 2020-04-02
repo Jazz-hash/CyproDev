@@ -12,7 +12,7 @@ class Index(TemplateView):
         context = super(Index, self).get_context_data(**kwargs)
         context['head'] = 'Home'
         context['slider_head'] = 'We Are Cyprodev'
-        context['slider_sub_head'] = 'We make your market digitally we make your ideas come true we build your startups we design we develop'
+        context['slider_sub_head'] = 'A single place to share, curate and discover visual that tells a story.'
         return context
 
 
