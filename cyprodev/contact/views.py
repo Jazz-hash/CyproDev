@@ -9,7 +9,7 @@ from .models import Contact, Project
 class ContactCreateView(CreateView):
     form_class = ContactForm
     template_name = 'contact/contact_form.html'
-    success_url = '/contact/'
+    success_url = '/contact-us/'
 
     def get_context_data(self, **kwargs):
         context = super(ContactCreateView, self).get_context_data(**kwargs)

@@ -1,18 +1,34 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block body %}
-<section class="site-section  bg-light block__62272" id="next-section">
+<section class="portfolio section-padding" data-scroll-index="1">
     <div class="container">
-        <div class="row justify-content-center mb-5" data-aos="fade-up">
-            <div id="filters" class="filters text-center button-group col-md-7">
-                <button class="btn btn-primary active search_query" data-filter="*">All</button>
-                <button class="btn btn-primary search_query" data-filter=".web">Web Design and
-                    Development</button>
-                <button class="btn btn-primary search_query" data-filter=".design">Graphic Design</button>
-                <button class="btn btn-primary search_query" data-filter=".brand">Animation</button>
+        <div class="row">
+
+            <div class="section-head col-sm-12">
+                <h4>
+                    <span>Our</span><br> Portfolio
+                </h4>
             </div>
-        </div>
-        <div id="posts" class="row no-gutter" style="position: relative; height: 1495.94px;">
+
+            <!-- filter links -->
+            <div class="filtering col-sm-12">
+                <span data-filter="*" class="active">All</span>
+                <span data-filter=".brand">Brand</span>
+                <span data-filter=".web">Design</span>
+                <span data-filter=".graphic">Graphic</span>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- gallery -->
+            <div id="posts" class="gallery text-center full-width">
+
+
+                <div class="clear-fix"></div>
+
+            </div>
+
 
         </div>
     </div>
@@ -32,23 +48,32 @@
                 success: function (data) {
                     for (var index = 0; index < data.length; index++) {
                         const element = data[index]['category']['head'];
-                        if (element == 'Web Designing' || element == 'Web Development') {
+                        if (element == 'UI/UX & Web Designing' || element == 'Web Development') {
                             type = 'web';
                         }
                         if (element == 'Graphic Designing') {
-                            type = 'design';
+                            type = 'graphic';
                         }
                         if (element == 'Animations') {
                             type = 'brand';
 
                         }
-                        var porfolio = '<div class="item ' + type + ' col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4" style = "position: absolute; left: 0px; top: 0px;" > \
-                            <a href="portfolio-single.html" class="item-wrap"> \
-                                <span class="icon-add"></span> \
-                                <img class="img-fluid" style="height:300px !important" src="'+ data[index]["porfolio_images"][0]["image"] + '"> \
-                            </a> \
-                        </div>' ;
-                        $('#posts').append(porfolio);
+                        console.log(data[index] + type);
+                        var porfolio = '<div class="col-md-4 items ' + type + '"> \
+                                            <div class="item-img h-100"> \
+                                                <img src="'+ data[index]["porfolio_images"][0]["image"] + '" alt="image"> \
+                                                <div class="item-img-overlay valign"> \
+                                                    <div class="overlay-info full-width vertical-center"> \
+                                                        <h6>'+ data[index].name + '</h6> \
+                                                    </div> \
+                                                     <a href="portfolio-single.html"> \
+                                                        <i class="icofont icofont-image"></i> \
+                                                    </a> \
+                                                </div> \
+                                            </div > \
+                                        </div > ';
+
+                        $('#posts').prepend(porfolio);
                     }
                 },
                 error: function (data) {

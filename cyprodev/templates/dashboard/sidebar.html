@@ -12,12 +12,12 @@
     </div>
     <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-            <li class="{% if head in 'Dashboard' %}active {% endif %} ">
+            {% comment %} <li class="{% if head in 'Dashboard' %}active {% endif %} ">
                 <a href="{% url 'dashboard' %}">
                     <i class="now-ui-icons design_app"></i>
                     <p>Dashboard</p>
                 </a>
-            </li>
+            </li> {% endcomment %}
             <li class="{% if head in 'User Profile' %}active {% endif %} ">
                 <a href="{% url 'accounts:profile' %}">
                     <i class="now-ui-icons users_circle-08"></i>

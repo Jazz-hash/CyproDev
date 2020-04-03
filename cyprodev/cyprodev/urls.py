@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 from services.views import ServiceHomeListView
 from contact.views import (
     ContactCreateView, ProjectCreateView, ProjectListView, ProjectDetailView)
+from accounts.views import UserDetailsEditView
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
 from portfolio.views import PortfolioPublicListView
@@ -34,7 +35,7 @@ urlpatterns = [
     path('contact-us/', ContactCreateView.as_view(), name="contact"),
     path('start-your-project/', ProjectCreateView.as_view(),
          name="start-your-project"),
-    path('dashboard/', views.Dashboard.as_view(), name="dashboard"),
+    path('dashboard/', UserDetailsEditView, name="dashboard"),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('services/', include('services.urls', namespace='services')),

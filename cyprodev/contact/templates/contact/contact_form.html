@@ -1,29 +1,77 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block body %}
-<section class="site-section" id="next-section">
-
-    <div class="container">
-        <h1>Contact Us</h1>
-
+<section class="contact" data-scroll-index="1">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-6 mb-5 mb-lg-0">
+
+            <div class="col-lg-6 contact-form">
                 {% load crispy_forms_tags %}
                 <form onsubmit="return show()" {% if form_id %} id='{{ form_id }}' {% endif %}
                     action="{% if action_url %}{{ action_url }}{% endif %}" class="w-100" method="POST">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <input class="btn btn-dark" type="submit" value="Send">
+                    <div class="messages"></div>
+                    <div class="controls">
+
+                        <div class="row">
+
+                            <div class="section-head col-sm-12">
+                                <h4>
+                                    <span>Get</span><br> In Touch
+                                </h4>
+                            </div>
+                            <div class="ml-5">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                            <input class="btn btn-dark" type="submit" value="Send Message">
+
+                            </div>
+
+                        </div>
                 </form>
             </div>
-            <div class="col-lg-5 ml-auto">
-                <div class="p-4 mb-3 bg-white">
-                    <p class="mb-0 font-weight-bold">Phone</p>
-                    <p class="mb-4"><a href="#">+1 232 3235 324</a></p>
-                    <p class="mb-0 font-weight-bold">Email Address</p>
-                    <p class="mb-0"><span>contact@cyprodev.com</span></p>
+        </div>
+    </div>
+</section>
+<section class="information bg-img" data-overlay-dark="9" data-background="{% static 'static/img/3.jpg' %}"
+    style="background-image: url(&quot;{% static 'static/img/3.jpg' %}&quot;);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="info">
+                    <div class="item">
+                        <span class="icon"><i class="icofont icofont-phone"></i></span>
+                        <div class="cont">
+                            <h6>Phone : </h6>
+                            <p>+20 010 2517 8918<br>+20 010 2517 8919</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <div class="col-lg-4">
+                <div class="info">
+                    <div class="item">
+                        <span class="icon"><i class="icofont icofont-map"></i></span>
+                        <div class="cont">
+                            <h6>Address : </h6>
+                            <p>3rd Avenue, East Side<br> San Francisco</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="info">
+                    <div class="item">
+                        <span class="icon"><i class="icofont icofont-email"></i></span>
+                        <div class="cont">
+                            <h6>Email : </h6>
+                            <p>contact@youradress.com<br>support@youradress.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
