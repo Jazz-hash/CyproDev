@@ -23,7 +23,7 @@ from contact.views import (
 from accounts.views import UserDetailsEditView
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
-from portfolio.views import PortfolioPublicListView
+from portfolio.views import PortfolioPublicListView, PortfolioPublicDetailView
 import notifications.urls
 
 urlpatterns = [
@@ -32,6 +32,8 @@ urlpatterns = [
     path('about/', views.About.as_view(), name="about"),
     path('our-services/', ServiceHomeListView.as_view(), name="services"),
     path('portfolios/', PortfolioPublicListView.as_view(), name="portfolios"),
+    path('portfolios/<int:pk>',
+         PortfolioPublicDetailView.as_view(), name="portfolios_detail"),
     path('contact-us/', ContactCreateView.as_view(), name="contact"),
     path('start-your-project/', ProjectCreateView.as_view(),
          name="start-your-project"),
@@ -49,15 +51,12 @@ urlpatterns = [
     path('api/portfolio/', include('portfolio.api.urls', namespace='portfolio-api')),
     path('api/service/', include('services.api.urls', namespace='service-api')),
     path('api/tasks/', include('tasks.api.urls', namespace='task-api')),
-
     path('inbox/notifications/',
          include(notifications.urls, namespace='notifications')),
     path('notifications/detail/<int:pk>',
          views.NotificationDetailView.as_view(), name="notify_details"),
     path('notifications/',
          views.NotificationListView.as_view(), name="notify"),
-
-
 ]
 if settings.DEBUG:
     urlpatterns += (static(settings.STATIC_URL,

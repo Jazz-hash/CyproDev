@@ -97,7 +97,7 @@
         </div>
     </section>
 
-    <div class="quote bg-img section-padding" data-overlay-dark="8" data-background="img/quoteimg.jpg">
+    <div class="quote bg-img section-padding" data-overlay-dark="8" data-background="{% static 'static/img/quoteimg.jpg' %}">
         <div class="container">
             <div class="row">
                 <div class="offset-lg-2 col-lg-8 text-center">
@@ -132,113 +132,11 @@
                 <div class="clearfix"></div>
 
                 <!-- gallery -->
-                <div class="gallery text-center full-width">
+                <div id="posts" class="gallery text-center full-width">
 
-                    <!-- gallery item -->
-                    <div class="col-md-4 items graphic">
-                        <div class="item-img">
-                            <img src="{% static 'static/img/portfolio/1.jpg' %}" alt="image">
-                            <div class="item-img-overlay valign">
-                                <div class="overlay-info full-width vertical-center">
-                                    <h6>Crearive Design</h6>
-                                </div>
-                                <a href="portfolio-single.html">
-                                    <i class="icofont icofont-image"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                  
 
-                    <!-- gallery item -->
-                    <div class="col-md-8 items web">
-                        <div class="item-img">
-                            <img src="{% static 'static/img/portfolio/2.jpg' %}" alt="image">
-                            <div class="item-img-overlay valign">
-                                <div class="overlay-info full-width vertical-center">
-                                    <h6>Crearive Design</h6>
-                                </div>
-                                <a href="portfolio-single.html">
-                                    <i class="icofont icofont-image"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- gallery item -->
-                    <div class="col-md-4 items brand">
-                        <div class="item-img">
-                            <img src="{% static 'static/img/portfolio/3.jpg' %}" alt="image">
-                            <div class="item-img-overlay valign">
-                                <div class="overlay-info full-width vertical-center">
-                                    <h6>Crearive Design</h6>
-                                </div>
-                                <a href="portfolio-single.html">
-                                    <i class="icofont icofont-image"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- gallery item -->
-                    <div class="col-md-4 items graphic">
-                        <div class="item-img">
-                            <img src="{% static 'static/img/portfolio/4.jpg' %}" alt="image">
-                            <div class="item-img-overlay valign">
-                                <div class="overlay-info full-width vertical-center">
-                                    <h6>Crearive Design</h6>
-                                </div>
-                                <a href="portfolio-single.html">
-                                    <i class="icofont icofont-image"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- gallery item -->
-                    <div class="col-md-4 items web">
-                        <div class="item-img">
-                            <img src="{% static 'static/img/portfolio/5.jpg' %}" alt="image">
-                            <div class="item-img-overlay valign">
-                                <div class="overlay-info full-width vertical-center">
-                                    <h6>Crearive Design</h6>
-                                </div>
-                                <a href="portfolio-single.html">
-                                    <i class="icofont icofont-image"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- gallery item -->
-                    <div class="col-md-8 items brand">
-                        <div class="item-img">
-                            <img src="{% static 'static/img/portfolio/6.jpg' %}" alt="image">
-                            <div class="item-img-overlay valign">
-                                <div class="overlay-info full-width vertical-center">
-                                    <h6>Crearive Design</h6>
-                                </div>
-                                <a href="portfolio-single.html">
-                                    <i class="icofont icofont-image"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- gallery item -->
-                    <div class="col-md-4 items web">
-                        <div class="item-img">
-                            <img src="{% static 'static/img/portfolio/7.jpg' %}" alt="image">
-                            <div class="item-img-overlay valign">
-                                <div class="overlay-info full-width vertical-center">
-                                    <h6>Crearive Design</h6>
-                                </div>
-                                <a href="portfolio-single.html">
-                                    <i class="icofont icofont-image"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
+                  
                     <div class="clear-fix"></div>
 
                 </div>
@@ -261,7 +159,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="item text-center mb-md50">
                         <span class="icon"><i class="icofont icofont-users-alt-3"></i></span>
-                        <h2 class="count">368</h2>
+                        <h2 class="count">0</h2>
                         <h6>Happy Clients</h6>
                     </div>
                 </div>
@@ -269,7 +167,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="item text-center mb-md50">
                         <span class="icon"><i class="icofont icofont-briefcase-alt-2"></i></span>
-                        <h2 class="count">937</h2>
+                        <h2 class="count">0</h2>
                         <h6>Projects Compleated</h6>
                     </div>
                 </div>
@@ -277,7 +175,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="item text-center mb-sm50">
                         <span class="icon"><i class="icofont icofont-brainstorming"></i></span>
-                        <h2 class="count">438</h2>
+                        <h2 class="count">0</h2>
                         <h6>Business Partners</h6>
                     </div>
                 </div>
@@ -285,7 +183,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="item text-center">
                         <span class="icon"><i class="icofont icofont-growth"></i></span>
-                        <h2 class="count">5946</h2>
+                        <h2 class="count">0</h2>
                         <h6>Liens Of Code</h6>
                     </div>
                 </div>
@@ -558,7 +456,7 @@
 
             </div>
             <div class="pt-50 text-center">
-                <a href="services.html">
+                <a href="{% url 'services'  %}">
                     <button class="btn btn-primary">See More</button>
                 </a>
             </div>
@@ -566,3 +464,86 @@
 
     </section>
 {% endblock body %}
+{% block scripts %}
+<script>
+
+
+    $(document).ready(function () {
+        var search_query = '/api/portfolio/search/?query=';
+        var type = '';
+        var containers = '';
+        var check = '8';
+        var doubleCheck = true;
+        var extraClass = '';
+
+        getData(search_query);
+        function getData(query) {
+            $.ajax({
+                url: query,
+                method: 'GET',
+                success: function (data) {
+                    data = data.slice(0,4);
+                    Object.keys(data).forEach((key) => {
+                        var value = data[key];
+                        var category = value.category.head;
+                        if (category == 'UI/UX & Web Designing' || category == 'Web Development') {
+                            type = 'web';
+                        }
+                        if (category == 'Graphic Designing') {
+                            type = 'graphic';
+                        }
+                        if (category == 'Animations') {
+                            type = 'brand';
+                        }
+                        if (key != 0) {
+                            if ((parseInt(key) + 1) % 2 != 0) {
+                                if (check == '8') {
+                                    check = '4';
+                                }
+                                else if (check == '4') {
+                                    check = '8';
+                                }
+                            }
+                        }
+                        if (check == '8') {
+                            check = '4';
+                        }
+                        else if (check == '4') {
+                            check = '8';
+                        }
+
+                        var porfolio = '<div class="col-' + check + ' float-left items graphic">\
+                            <div class="item-img">\
+                                <img src="'+ value.porfolio_images[0].image + '" style="height:340px !important;" alt="image">\
+                                    <div class="item-img-overlay valign">\
+                                        <div class="overlay-info full-width vertical-center">\
+                                            <a href="/portfolios/'+ value.id + '" class="h6">' + value.name + '</a>\
+                                        </div>\
+                                        <a href="portfolio-single.html">\
+                                            <i class="icofont icofont-image"></i>\
+                                        </a>\
+                                    </div>\
+                                </div>\
+                            </div>';
+
+
+                        containers += porfolio;
+                        // console.log(containers);
+                    });
+                    $('#posts').append(containers);
+
+
+                    // for (let index = 0; index < length; index++) {
+                    //     
+
+                    // };
+                },
+                error: function (data) {
+                    console.log('error');
+                }
+            });
+        }
+    });
+
+</script>
+{% endblock scripts %}

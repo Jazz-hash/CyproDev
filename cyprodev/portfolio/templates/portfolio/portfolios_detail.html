@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block body %}
+<section class="portfolio section-padding" data-scroll-index="1">
+    <div class="container">
+        <div class="row">
+
+            <div class="section-head col-sm-12">
+                <h4>
+                    <span>{{object.user.first_name}} {{object.user.last_name}}</span><br> {{object.name}}
+                </h4>
+                <br>
+                <br>
+                <h6 class="text-center">
+                    {% if object.description %}
+                    {{object.description}}
+                    
+                    {% else %}
+                    No description available !
+                    {% endif %}
+                </h6>
+            </div>
+  
+            <div class="container">
+                <div class="row">
+                  {% for image in object.porfolio_images.all %}
+        
+        <div class="col-12 mt-40">
+                        <img src="{{image.image.url}}" class="img-fluid">
+                    </div>
+    {% endfor %}
+                    
+                   
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock body %}

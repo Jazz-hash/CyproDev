@@ -22,10 +22,9 @@
             <div class="clearfix"></div>
 
             <!-- gallery -->
-            <div id="posts" class="gallery text-center full-width">
+            <div id="posts" class="row text-center full-width">
 
 
-                <div class="clear-fix"></div>
 
             </div>
 
@@ -37,44 +36,76 @@
 
 {% block scripts %}
 <script>
+
+
     $(document).ready(function () {
         var search_query = '/api/portfolio/search/?query=';
         var type = '';
+        var containers = '';
+        var check = '8';
+        var doubleCheck = true;
+        var extraClass = '';
+
         getData(search_query);
         function getData(query) {
             $.ajax({
                 url: query,
                 method: 'GET',
                 success: function (data) {
-                    for (var index = 0; index < data.length; index++) {
-                        const element = data[index]['category']['head'];
-                        if (element == 'UI/UX & Web Designing' || element == 'Web Development') {
+                    Object.keys(data).forEach((key) => {
+                        var value = data[key];
+                        var category = value.category.head;
+                        if (category == 'UI/UX & Web Designing' || category == 'Web Development') {
                             type = 'web';
                         }
-                        if (element == 'Graphic Designing') {
+                        if (category == 'Graphic Designing') {
                             type = 'graphic';
                         }
-                        if (element == 'Animations') {
+                        if (category == 'Animations') {
                             type = 'brand';
-
                         }
-                        console.log(data[index] + type);
-                        var porfolio = '<div class="col-md-4 items ' + type + '"> \
-                                            <div class="item-img h-100"> \
-                                                <img src="'+ data[index]["porfolio_images"][0]["image"] + '" alt="image"> \
-                                                <div class="item-img-overlay valign"> \
-                                                    <div class="overlay-info full-width vertical-center"> \
-                                                        <h6>'+ data[index].name + '</h6> \
-                                                    </div> \
-                                                     <a href="portfolio-single.html"> \
-                                                        <i class="icofont icofont-image"></i> \
-                                                    </a> \
-                                                </div> \
-                                            </div > \
-                                        </div > ';
+                        if (key != 0) {
+                            if ((parseInt(key) + 1) % 2 != 0) {
+                                if (check == '8') {
+                                    check = '4';
+                                }
+                                else if (check == '4') {
+                                    check = '8';
+                                }
+                            }
+                        }
+                        if (check == '8') {
+                            check = '4';
+                        }
+                        else if (check == '4') {
+                            check = '8';
+                        }
 
-                        $('#posts').prepend(porfolio);
-                    }
+                        var porfolio = '<div class="col-' + check + ' ' + extraClass + '  items graphic">\
+                            <div class="item-img">\
+                                <img src="'+ value.porfolio_images[0].image + '" style="height:340px !important;" alt="image">\
+                                    <div class="item-img-overlay valign">\
+                                        <div class="overlay-info full-width vertical-center">\
+                                            <a href="/portfolios/'+ value.id + '" class="h6">' + value.name + '</a>\
+                                        </div>\
+                                        <a href="portfolio-single.html">\
+                                            <i class="icofont icofont-image"></i>\
+                                        </a>\
+                                    </div>\
+                                </div>\
+                            </div>';
+
+
+                        containers += porfolio;
+                        // console.log(containers);
+                    });
+                    $('#posts').append(containers);
+
+
+                    // for (let index = 0; index < length; index++) {
+                    //     
+
+                    // };
                 },
                 error: function (data) {
                     console.log('error');

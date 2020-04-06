@@ -25,6 +25,18 @@ class PortfolioPublicListView(TemplateView):
         return context
 
 
+class PortfolioPublicDetailView(DetailView):
+    template_name = 'portfolio/portfolios_detail.html'
+    model = Portfolio
+
+    def get_context_data(self, **kwargs):
+        context = super(PortfolioPublicDetailView,
+                        self).get_context_data(**kwargs)
+        context['head'] = 'Portfolio'
+        context['slider_head'] = 'Portfolio Detail'
+        return context
+
+
 class PortfolioListView(LoginRequiredMixin, ListView):
     model = Portfolio
 

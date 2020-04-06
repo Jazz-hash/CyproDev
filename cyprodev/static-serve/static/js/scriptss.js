@@ -10,7 +10,7 @@
 -----------------------------------------------------------------------------------*/
 
 
-$(function() {
+$(function () {
 
     "use strict";
 
@@ -32,7 +32,7 @@ $(function() {
 
 
     // navbar scrolling background
-    wind.on("scroll", function() {
+    wind.on("scroll", function () {
 
         var bodyScroll = wind.scrollTop(),
             navbar = $(".navbar"),
@@ -51,15 +51,15 @@ $(function() {
     });
 
     // close navbar-collapse when a  clicked
-    $(".navbar-nav a").on('click', function() {
+    $(".navbar-nav a").on('click', function () {
         $(".navbar-collapse").removeClass("show");
     });
 
 
 
     // progress bar
-    wind.on('scroll', function() {
-        $(".skills-progress span").each(function() {
+    wind.on('scroll', function () {
+        $(".skills-progress span").each(function () {
             var bottom_of_object =
                 $(this).offset().top + $(this).outerHeight();
             var bottom_of_window =
@@ -77,7 +77,7 @@ $(function() {
 
     // sections background image from data background
     var pageSection = $(".bg-img, section");
-    pageSection.each(function(indx) {
+    pageSection.each(function (indx) {
 
         if ($(this).attr("data-background")) {
             $(this).css("background-image", "url(" + $(this).data("background") + ")");
@@ -161,7 +161,7 @@ $(function() {
 
 
     // Services Tabs
-    $(".tabs-icon").on("click", ".item", function() {
+    $(".tabs-icon").on("click", ".item", function () {
 
         var myID = $(this).attr("id");
 
@@ -173,7 +173,7 @@ $(function() {
 
 
     // Map Show
-    $(".info").on("click", ".icon-toggle", function() {
+    $(".info").on("click", ".icon-toggle", function () {
 
         $(".info").toggleClass("map-show");
         $(".map").toggleClass("o-hidden");
@@ -186,7 +186,7 @@ $(function() {
 
 // === window When Loading === //
 
-$(window).on("load", function() {
+$(window).on("load", function () {
 
     var wind = $(window);
 
@@ -209,7 +209,7 @@ $(window).on("load", function() {
     });
 
     // filter items on button click
-    $('.filtering').on('click', 'span', function() {
+    $('.filtering').on('click', 'span', function () {
 
         var filterValue = $(this).attr('data-filter');
 
@@ -217,7 +217,7 @@ $(window).on("load", function() {
 
     });
 
-    $('.filtering').on('click', 'span', function() {
+    $('.filtering').on('click', 'span', function () {
 
         $(this).addClass('active').siblings().removeClass('active');
 
@@ -227,7 +227,7 @@ $(window).on("load", function() {
     // contact form validator
     $('#contact-form').validator();
 
-    $('#contact-form').on('submit', function(e) {
+    $('#contact-form').on('submit', function (e) {
         if (!e.isDefaultPrevented()) {
             var url = "contact.html";
 
@@ -235,7 +235,7 @@ $(window).on("load", function() {
                 type: "POST",
                 url: url,
                 data: $(this).serialize(),
-                success: function(data) {
+                success: function (data) {
                     var messageAlert = 'alert-' + data.type;
                     var messageText = data.message;
 
@@ -254,7 +254,7 @@ $(window).on("load", function() {
 
 
 // Slider 
-$(document).ready(function() {
+$(document).ready(function () {
 
     var owl = $('.header .owl-carousel');
 
@@ -278,7 +278,7 @@ $(document).ready(function() {
         animateOut: 'fadeOut'
     });
 
-    owl.on('changed.owl.carousel', function(event) {
+    owl.on('changed.owl.carousel', function (event) {
         var item = event.item.index - 2; // Position of the current item
         $('h3').removeClass('animated fadeInLeft');
         $('h1').removeClass('animated fadeInRight');
