@@ -15,8 +15,8 @@ class ContactCreateView(CreateView):
         context = super(ContactCreateView, self).get_context_data(**kwargs)
         context['head'] = 'Contact'
         context['slider_head'] = 'Contact Us'
-        context['slider_sub_head'] = 'Lorem'
-
+        context['slider_sub_head'] = ''
+        context['slider_image'] = '/static/static/img/contact.jpg'
         return context
 
 
@@ -69,6 +69,8 @@ class ProjectCreateView(CreateView):
         context = super(ProjectCreateView, self).get_context_data(**kwargs)
         context['head'] = 'Start Your Project'
         context['slider_head'] = 'Start Your Project'
-        context['slider_sub_head'] = 'Lorem'
+        context['slider_sub_head'] = ''
+        context['slider_image'] = '/static/static/img/startyourproject.jpg'
+
 
         return context

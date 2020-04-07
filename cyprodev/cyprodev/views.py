@@ -13,6 +13,7 @@ class Index(TemplateView):
         context['head'] = 'Home'
         context['slider_head'] = 'We Are Cyprodev'
         context['slider_sub_head'] = 'A single place to share, curate and discover visual that tells a story.'
+        context['slider_image'] = '/static/static/img/fkGAdX.jpg'
         return context
 
 
@@ -47,6 +48,7 @@ class About(TemplateView):
         context['head'] = 'About'
         context['slider_head'] = 'About Us'
         context['slider_sub_head'] = 'Lorem'
+        context['slider_image'] = '/static/static/img/about.jpg'
 
         return context
 

@@ -21,7 +21,9 @@ class PortfolioPublicListView(TemplateView):
                         self).get_context_data(**kwargs)
         context['head'] = 'Portfolios'
         context['slider_head'] = 'Portfolio'
-        context['slider_sub_head'] = 'Lorem'
+        context['slider_sub_head'] = ''
+        context['slider_image'] = '/static/static/img/portfolio.jpg'
+
         return context
 
 
@@ -34,6 +36,8 @@ class PortfolioPublicDetailView(DetailView):
                         self).get_context_data(**kwargs)
         context['head'] = 'Portfolio'
         context['slider_head'] = 'Portfolio Detail'
+        context['slider_image'] = '/static/static/img/portfolio.jpg'
+
         return context
 
 
