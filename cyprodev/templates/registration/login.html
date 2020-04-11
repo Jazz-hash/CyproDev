@@ -1,110 +1,169 @@
-{% load static %}
-{% load crispy_forms_tags %}
-<!DOCTYPE html>
+{% load static %} {% load crispy_forms_tags %}
+<!doctype html>
 <html lang="en">
-
-<!-- Mirrored from colorlib.com/etc/lf/Login_v3/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Feb 2020 06:18:11 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
-    <title>CyproDev | Login</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cyprodev | Sign In</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="icon" type="image/png" href="{% static 'static/images/icons/favicon.ico' %}  " />
-
-    <link rel="stylesheet" type="text/css" href="{% static 'static/vendor/bootstrap/css/bootstrap.min.css' %}">
-
-    <link rel="stylesheet" type="text/css"
-        href="{% static 'static/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
-
-    <link rel="stylesheet" type="text/css"
-        href="{% static 'static/fonts/iconic/css/material-design-iconic-font.min.css' %}">
-
-    <link rel="stylesheet" type="text/css" href="{% static 'static/vendor/animate/animate.css' %}">
-
-    <link rel="stylesheet" type="text/css" href="{% static 'static/vendor/css-hamburgers/hamburgers.min.css' %}">
-
-    <link rel="stylesheet" type="text/css" href="{% static 'static/vendor/animsition/css/animsition.min.css' %}">
-
-    <link rel="stylesheet" type="text/css" href="{% static 'static/vendor/select2/select2.min.css' %}">
-
-    <link rel="stylesheet" type="text/css" href="{% static 'static/vendor/daterangepicker/daterangepicker.css' %}">
-
-    <link rel="stylesheet" type="text/css" href="{% static 'static/css/util.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'static/css/main.css' %}">
+    {% include 'base/stylesheets.html' %}
 
 </head>
 
 <body>
-    <div class="limiter">
-        <div class="container-login100" style="background-image: url('{% static 'static/images/bg-01.jpg' %}');">
-            <div class="wrap-login100">
-                <form {% if form_id %} id='{{ form_id }}' {% endif %}
-                    action="{% if action_url %}{{ action_url }}{% endif %}" method="POST"
-                    class="login100-form validate-form">
-                    {% csrf_token %}
-                    <span class="login100-form-logo">
-                        <i class="zmdi zmdi-landscape"></i>
-                    </span>
-                    <span class="login100-form-title p-b-34 p-t-27">
-                        Log in
-                    </span>
-                    {{form|crispy}}
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
-                            Login
-                        </button>
-                    </div>
-                    <div class="text-center p-t-90">
-                        <a class="txt1" href="#">
-                            Forgot Password?
-                        </a>
-                    </div>
-                </form>
-            </div>
+
+
+    <nav class="navbar navbar-expand-lg">
+    <div class="container">
+
+        <!-- Logo -->
+        <a class="logo" href="{% url 'home' %}">
+            <img src="{% static 'static/img/logo-light.png' %}" alt="logo">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"><i class="fas fa-bars"></i></span>
+        </button>
+
+        <!-- navbar links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link {% if head in 'Home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if head in 'About' %}active{% endif %}" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if head in 'Portfolios' %}active{% endif %}"
+                        href="{% url 'portfolios' %}">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if head in 'Services' %}active{% endif %}"
+                        href="{% url 'services' %}">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if head in 'Contact' %}active{% endif %}"
+                        href="{% url 'contact' %}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if head in 'Start Your Project' %}active{% endif %}"
+                        href="{% url 'start-your-project' %}">Start Your Project</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'dashboard' %}">Hello {{request.user.username}} !</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link  active" href="{% url 'login' %}">Sign In</a>
+                </li>
+                {% endif %}
+
+            </ul>
         </div>
     </div>
-    <div id="dropDownSelect1"></div>
+</nav>
 
-    <script src="{% static 'static/vendor/jquery/jquery-3.2.1.min.js' %}"
-        type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
 
-    <script src="{% static 'static/vendor/animsition/js/animsition.min.js' %}"
-        type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
 
-    <script src="{% static 'static/vendor/bootstrap/js/popper.js' %}"
-        type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
-    <script src="{% static 'static/vendor/bootstrap/js/bootstrap.min.js' %}"
-        type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
+    <header class="header valign bg-img creative" data-scroll-index="0" data-overlay-dark="5"
+        data-background="/static/static/img/login.jpg" data-stellar-background-ratio="0.5"
+        style=" background-position: 0px 0px;">
+        <!-- particles -->
+        <div id="particles-js"></div>
+        <div class="svg">
+            <svg x="0px" y="0px" viewBox="0 186.5 1920 113.5">
+                <polygon points="-30,300 355.167,210.5 1432.5,290 1920,198.5 1920,300"></polygon>
+            </svg>
+        </div>
 
-    <script src="{% static 'static/vendor/select2/select2.min.js' %}"
-        type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
+       <div class="container">
+            <div class="row">
+                <div class="full-width text-center caption mt-30">
+                    <h3>Sign In</h3>
+                    <h1 class="cd-headline clip">
+                        <span class="blc">The Way Of </span>
+                        <span class="cd-words-wrapper" style="width: 37.1848px; overflow: hidden;">
+                            <b class="is-hidden">Success</b>
+                            <b class="is-hidden">Grow Up</b>
+                            <b class="is-visible">Dream</b>
+                        </span>
+                    </h1>
+                    <p></p>
+                   
+                </div>
+            </div>
+        </div>
 
-    <script src="{% static 'static/vendor/daterangepicker/moment.min.js' %}"
-        type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
-    <script src="{% static 'static/vendor/daterangepicker/daterangepicker.js' %}"
-        type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
+        <div class="arrow">
+            <a href="#" data-scroll-nav="1">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </header>
 
-    <script src="{% static 'static/vendor/countdowntime/countdowntime.js' %}"
-        type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
+    <section class="contact" data-scroll-index="1">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 contact-form">
 
-    <script src="{% static 'static/js/main.js' %}" type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
-        type="e99dbf9ee28df24e3133ad47-text/javascript"></script>
-    <script type="e99dbf9ee28df24e3133ad47-text/javascript">
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+    <section class="contact" data-scroll-index="1">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 contact-form">
+                    <form {% if form_id %} id='{{ form_id }}' {% endif %}
+                        action="{% if action_url %}{{ action_url }}{% endif %}" method="POST"
+                        class="login100-form validate-form">
+                        <div class="controls">
 
-	  gtag('config', 'UA-23581568-13');
-	</script>
-    <script src="{% static 'static/js/rocket-loader.min.js' %}" data-cf-settings="e99dbf9ee28df24e3133ad47-|49"
-        defer=""></script>
+                            <div class="row">
+
+                                <div class="section-head col-sm-12">
+                                    <h4>
+                                        <span>Sign In</span><br>
+                                    </h4>
+                                    <br />
+                                    <br />
+                                    {% csrf_token %}
+
+                                    {{form|crispy}}
+
+                                    <div class="col-12 pl-0">
+                                        <button type="submit"><span>Sign In</span></button>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    {% include 'base/footer.html' %}
+    {% include 'base/scripts.html' %}
+
+    {% block scripts %}
+
+    {% endblock scripts %}
+
+
 </body>
-
-<!-- Mirrored from colorlib.com/etc/lf/Login_v3/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Feb 2020 06:18:24 GMT -->
 
 </html>
