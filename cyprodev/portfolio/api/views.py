@@ -9,7 +9,6 @@ from django.db.models import Q
 
 class PortfolioListApiView(generics.ListAPIView):
     serializer_class = PortfolioDisplaySerializer
-    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         query = self.request.query_params.get('query', None)

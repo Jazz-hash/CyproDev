@@ -687,12 +687,12 @@ a:hover {
     transform: translateY(0);
 }
 
-.portfolio .item-img:hover h6 {
+.portfolio .item-img:hover .h6 {
     -webkit-transform: translateY(0);
     transform: translateY(0);
 }
 
-.portfolio .item-img h6 {
+.portfolio .item-img .h6 {
     font-weight: 600;
     position: relative;
     margin-bottom: 5px;

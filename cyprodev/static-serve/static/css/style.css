@@ -1,49 +1,3 @@
-/*-----------------------------------------------------------------------------------
-
- Theme Name: Bemax
- Theme URI: http://
- Description: The Multi-Purpose Onepage Template
- Author: ui-themez
- Author URI: http://themeforest.net/user/ui-themez
- Version: 1.0
-
- Main Color   : #004e92
- main Font    : Poppins
- Heading Font : Raleway
-
------------------------------------------------------------------------------------*/
-
-
-/* ----------------------------------------------------------------
-
- == Table Of Content
-
-	01 Basic
-	02 Navbar
-	03 Header
-	04 Hero
-	05 Quote
-	06 Portfolio
-	07 Numbers
-	08 Services
-	09 serv-tabs
-	10 Team
-	11 Price
-	12 Testimonials
-	13 Blog
-	14 Clients
-	15 Contact
-	16 Footer
-	17 Responsive
- 
-
----------------------------------------------------------------- */
-
-
-/* ----------------------------------------------------------------
-     [ 01 Start Basic ]
------------------------------------------------------------------*/
-
 * {
     margin: 0;
     padding: 0;
@@ -733,12 +687,12 @@ a:hover {
     transform: translateY(0);
 }
 
-.portfolio .item-img:hover h6 {
+.portfolio .item-img:hover .h6 {
     -webkit-transform: translateY(0);
     transform: translateY(0);
 }
 
-.portfolio .item-img h6 {
+.portfolio .item-img .h6 {
     font-weight: 600;
     position: relative;
     margin-bottom: 5px;
@@ -1637,6 +1591,7 @@ ul.list1 {
 
 .contact .contact-form input[type='text'],
 .contact .contact-form input[type='email'],
+.contact .contact-form input[type='password'],
 .contact .contact-form textarea {
     width: 100%;
     padding: 10px;
@@ -1660,6 +1615,7 @@ ul.list1 {
     font-weight: 600;
     cursor: pointer;
     position: relative;
+    float: right;
 }
 
 .contact .contact-form button[type='submit']:after {
@@ -1806,6 +1762,3 @@ footer p {
         display: none;
     }
 }
-
-
-/*# sourceMappingURL=style.css.map */
