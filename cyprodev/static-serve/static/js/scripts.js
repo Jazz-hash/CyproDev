@@ -143,7 +143,7 @@ $(function () {
 
 
     // magnificPopup
-    $('.gallery').magnificPopup({
+    $('.gall').magnificPopup({
         delegate: '.popimg',
         type: 'image',
         gallery: {
@@ -201,12 +201,12 @@ $(window).on("load", function () {
 
 
     // isotope
-    $('.gallery').isotope({
+    $('.gall').isotope({
         // options
         itemSelector: '.items'
     });
 
-    var $gallery = $('.gallery').isotope({
+    var $gallery = $('.gall').isotope({
         // options
     });
 
