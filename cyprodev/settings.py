@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -83,8 +84,12 @@ WSGI_APPLICATION = 'cyprodev.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'cyprodev',
+        'USER': 'cyprodevuser',
+        'PASSWORD': 'jazz123',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -107,6 +112,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Activate Django-Heroku.
+django_heroku.settings(locals())
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
