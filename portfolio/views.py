@@ -112,7 +112,7 @@ class PortfolioCreateView(LoginRequiredMixin, CreateView):
             portfolio_form.save()
             print(portfolio_form.id)
             for image in images:
-                image_form = Image.objects.create(protfolio=portfolio_form)
+                image_form = Image.objects.create(portfolio=portfolio_form)
                 image_form.image = image
                 image_form.save()
 
