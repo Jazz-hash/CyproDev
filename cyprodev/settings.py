@@ -24,7 +24,12 @@ SECRET_KEY = '6dp1tjdv)f2ap=41&vra7qy+n^gbnpzju$g9uhd=_d^m0du_y('
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
+SECURE_HSTS_SECONDS = True
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
 
 ALLOWED_HOSTS = ['*']
 
