@@ -1,36 +1,30 @@
 {% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
-<head>
+  <head>
     <title>Cyprodev | {{head}}</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     {% include 'base/stylesheets.html' %}
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
     </style>
-</head>
+  </head>
 
-<body>
-    {% include 'base/loader.html' %}
-    {% include 'base/navigation.html' %}
-
-    {% include 'base/header.html' %}
-
-    {% block body %}
-
-    {% endblock body %}
-
-    {% include 'base/footer.html' %}
-    {% include 'base/scripts.html' %}
-
-    {% block scripts %}
-
-    {% endblock scripts %}
-
-</body>
-
-
+  <body>
+    <div class="main-page-wrapper">
+      {% include 'base/loader.html' %} 
+      {% include 'base/navigation.html' %} 
+      {% include 'base/header.html' %} 
+      {% block body %} {% endblock body %}
+      {% include 'base/footer.html' %}
+      {% include 'base/scripts.html' %} 
+      {% block scripts %} {% endblock scripts %}
+    </div>
+  </body>
 </html>

@@ -1,53 +1,61 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg">
-    <div class="container">
-
-        <!-- Logo -->
-        <a class="logo" href="{% url 'home' %}">
-            <img src="{% static 'static/img/logo-light.png' %}" alt="logo">
-        </a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="icon-bar"><i class="fas fa-bars"></i></span>
-        </button>
-
-        <!-- navbar links -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link {% if head in 'Home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if head in 'About' %}active{% endif %}" href="{% url 'about' %}">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if head in 'Portfolios' %}active{% endif %}"
-                        href="{% url 'portfolios' %}">Portfolio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if head in 'Services' %}active{% endif %}"
-                        href="{% url 'services' %}">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if head in 'Contact' %}active{% endif %}"
-                        href="{% url 'contact' %}">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if head in 'Start Your Project' %}active{% endif %}"
-                        href="{% url 'start-your-project' %}">Start Your Project</a>
-                </li>
-                {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'dashboard' %}">Hello {{request.user.username}} !</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Sign In</a>
-                </li>
-                {% endif %}
-
-            </ul>
-        </div>
+<div class="theme-main-menu theme-menu-one main-p-color sticky-menu">
+  <div class="d-flex align-items-center float">
+    <div class="logo">
+      <a href="{% url 'home' %}"
+        ><img src="{% static 'static/images/logo/CyprodevLogo2.png' %}" alt=""
+      /></a>
     </div>
-</nav>
+    <div class="right-content ml-auto order-lg-3">
+      <nav id="mega-menu-holder" class="navbar navbar-expand-lg order-lg-2">
+        <div class="container nav-container">
+          <button
+            class="navbar-toggler-right res"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="stick"
+              ><img
+                src="{% static 'static/images/shape/hamburger-icon-b.png' %}"
+                alt=""
+            /></i>
+            <i class="fix"
+              ><img
+                src="{% static 'static/images/shape/hamburger-icon.png' %}"
+                alt=""
+            /></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item {% if head in 'Home' %}active{% endif %}">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item {% if head in 'About' %}active{% endif %}">
+                <a class="nav-link" href="{% url 'about' %}">About Us</a>
+              </li>
+              <li
+                class="nav-item {% if head in 'Portfolios' %}active{% endif %}"
+              >
+                <a class="nav-link" href="{% url 'portfolios' %}">Portfolio</a>
+              </li>
+              <li class="nav-item {% if head in 'Services' %}active{% endif %}">
+                <a class="nav-link" href="{% url 'services' %}">Services</a>
+              </li>
+              <li class="ml-4 {% if head in 'Contact' %}active{% endif %}">
+                <a
+                  class="theme-btn line-button-one button-rose contact-button"
+                  href="{% url 'contact' %}"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>

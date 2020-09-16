@@ -12,8 +12,10 @@ class Index(TemplateView):
         context = super(Index, self).get_context_data(**kwargs)
         context['head'] = 'Home'
         context['slider_head'] = 'We Are Cyprodev'
-        context['slider_sub_head'] = 'A single place to share, curate and discover visual that tells a story.'
-        context['slider_image'] = '/static/static/img/fkGAdX.jpg'
+        context['extra_slider_head'] = 'Agency'
+        context['slider_sub_head'] = "We are your one stop solution for all your digital marketing and software needs based in Pakistan which is fueled by young and dynamic people. We believe in building strong brands through our clean and creative designs, well-crafted content and integrated strategies. From digital marketing to website development and all your software needs; we're more than just another agency. We're your next business partner."
+        context['slider_image'] = 'static/static/images/shape/home1.png'
+        context['slider_sub_image'] = 'static/static/images/shape/Home-responsive.png'
         return context
 
 
@@ -47,8 +49,10 @@ class About(TemplateView):
         context = super(About, self).get_context_data(**kwargs)
         context['head'] = 'About'
         context['slider_head'] = 'About Us'
-        context['slider_sub_head'] = 'Lorem'
-        context['slider_image'] = '/static/static/img/about.jpg'
+        context['slider_sub_head'] = 'We are Cyprodev. A web, software design and development professionals who love partnering with good people and businesses to help them achieve digital success.'
+        context['slider_image'] = 'static/static/images/shape/about1.png'
+        context['slider_sub_image'] = 'static/static/images/shape/about-responsive.png'
+
 
         return context
 
