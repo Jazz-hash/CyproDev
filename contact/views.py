@@ -23,8 +23,7 @@ class ContactCreateView(CreateView):
         context = super(ContactCreateView, self).get_context_data(**kwargs)
         context['head'] = 'Contact'
         context['slider_head'] = 'Contact Us'
-        context['slider_sub_head'] = ''
-        context['slider_image'] = '/static/static/img/contact.jpg'
+        context['slider_sub_head'] = 'Feel free to contact us any time we are here to answer your queries. So what are waiting for? our agents are waiting for you!'
         return context
 
 

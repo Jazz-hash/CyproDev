@@ -21,9 +21,7 @@ class PortfolioPublicListView(TemplateView):
                         self).get_context_data(**kwargs)
         context['head'] = 'Portfolios'
         context['slider_head'] = 'Portfolio'
-        context['slider_sub_head'] = ''
-        context['slider_image'] = '/static/static/img/portfolio.jpg'
-
+        context['slider_sub_head'] = 'Check out some of our brilliant work that we have done for our excellent clients like you, this page is waiting for the work that we will do for you.'
         return context
 
 

@@ -1,21 +1,29 @@
 {% load static %}
-<footer class="text-center">
-        <div class="container">
-
-            <!-- Logo -->
-            <a class="logo" href="#">
-                <img src="{% static 'static/img/logo-light.png' %}" alt="logo">
-            </a>
-
-            <div class="social">
-                <a href="#0"><i class="icofont icofont-social-facebook"></i></a>
-                <a href="#0"><i class="icofont icofont-social-twitter"></i></a>
-                <a href="#0"><i class="icofont icofont-social-instagram"></i></a>
-                <a href="#0"><i class="icofont icofont-brand-linkedin"></i></a>
-                <a href="#0"><i class="icofont icofont-social-behance"></i></a>
-            </div>
-
-            <p>&copy; 2020 Cyprodev. All Rights Reserved.</p>
+ <div class="element-section pos-r pt-250 md-pt-70 md-pb-30">
+        <div class="shape-wrapper">
+            <img src="{% static 'static/images/shape/5.png' %}" alt="" class="img-shape shape-four">
 
         </div>
-    </footer>
+
+        <div class="theme-footer-three">
+            <div class="container">
+                <div class="logo">
+                    <a href="{% url 'home' %}"><img src="{% static 'static/images/logo/CyprodevLogo2.png' %}" alt=""></a>
+                </div>
+                <ul class="social-icon pt-3">
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                </ul>
+                <p class="copy-right">&copy; 2020 Cyprodev All Right Reserved</p>
+            </div>
+        </div>
+    </div>
+
+
+    <button class="scroll-top tran3s ">
+				<i class="fa fa-angle-up " aria-hidden="true "></i>
+			</button>

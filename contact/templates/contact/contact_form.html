@@ -1,11 +1,42 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block body %}
-<section class="contact" data-scroll-index="1">
- 
-    <div class="container-fluid">
-    <div class="ml-5 mr-5 mt-5 pt-4">
-    {% if messages %}
+<div class="rogan-hero-section rogan-hero-three pt-300 pb-350 md-pt-200 md-pb-130 pos-r">
+            <div class="shape-wrapper">
+                <img src="{% static 'static/images/shape/contact.png' %}" alt="" class="main-image-shape img-shape rest">
+                <img src="{% static 'static/images/shape/Contact-responsive.png' %}" alt="" class="main-image-shape img-shape resty">
+
+            </div>
+            <div class="container">
+                <div class="main-wrapper pos-r">
+                    <h1 class="banner-main-title pt-15 pb-45 md-pb-20 wow fadeInUp animated" data-wow-delay="0.4s">{{slider_head}}<br/><span>{{extra_slider_head}}</span></h1>
+                    <p class="banner-sub-title pb-45 wow fadeInUp animated col-md-6" data-wow-delay="0.9s">{{slider_sub_head}}</p>
+                    <a href="#" class="theme-btn solid-button-one button-rose wow fadeInLeft animated" data-wow-delay="1.5s">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <div class="about-us-block-two pt-100 pb-250 md-pt-30 md-pb-100 pos-r">
+        <div class="shape-wrapper">
+            <img src="{% static 'static/images/shape/contact-img.png' %}" alt="" class="img-shape shape-one">
+
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 order-lg-last res-vision">
+               
+                    <div class="theme-title-one ">
+                        <h2 class="main-title text-left pb-30"><span>Get In Touch</span></h2>
+                    </div>
+                    <div class="contact-form">
+                {% load crispy_forms_tags %}
+
+                        <form class="form theme-form-style-one"
+                        {% if form_id %} id='{{ form_id }}' {% endif %}
+                    action="{% if action_url %}{{ action_url }}{% endif %}" method="POST"
+                        >
+                             {% if messages %}
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
           {{ message }}
@@ -15,78 +46,28 @@
         </div>
         {% endfor %}
     {% endif %}
-    </div>
-        <div class="row">
-
-            <div class="col-lg-6 contact-form">
-                {% load crispy_forms_tags %}
-                <form {% if form_id %} id='{{ form_id }}' {% endif %}
-                    action="{% if action_url %}{{ action_url }}{% endif %}" class="w-100" method="POST">
-                    <div class="messages"></div>
-                    <div class="controls">
-
-                        <div class="row">
-
-                            <div class="section-head col-sm-12">
-                                <h4>
-                                    <span>Get</span><br> In Touch
-                                </h4>
-                            </div>
-                            <div class="ml-5">
-                                {% csrf_token %}
+                            <div class="controls">
+                               {% csrf_token %}
                                 {{ form|crispy }}
-                            <input class="btn btn-dark" type="submit" value="Send Message">
-
+                            <input class="theme-btn text-white solid-button-one button-rose wow fadeInLeft animated ml-0" type="submit" value="Submit">
                             </div>
+                            <!-- /.controls -->
+                        </form>
+                    </div>
+                    <!-- /.contact-form -->
+                </div>
+                <div class="col-lg-6 order-lg-first">
 
-                        </div>
-                </form>
+                </div>
             </div>
+            <!-- /.row -->
         </div>
+        <!-- /.container -->
     </div>
-</section>
-<section class="information bg-img" data-overlay-dark="9" data-background="{% static 'static/img/3.jpg' %}"
-    style="background-image: url(&quot;{% static 'static/img/3.jpg' %}&quot;);">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="info">
-                    <div class="item">
-                        <span class="icon"><i class="icofont icofont-phone"></i></span>
-                        <div class="cont">
-                            <h6>Phone : </h6>
-                            <p>+20 010 2517 8918<br>+20 010 2517 8919</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-lg-4">
-                <div class="info">
-                    <div class="item">
-                        <span class="icon"><i class="icofont icofont-map"></i></span>
-                        <div class="cont">
-                            <h6>Address : </h6>
-                            <p>3rd Avenue, East Side<br> San Francisco</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-lg-4">
-                <div class="info">
-                    <div class="item">
-                        <span class="icon"><i class="icofont icofont-email"></i></span>
-                        <div class="cont">
-                            <h6>Email : </h6>
-                            <p>contact@youradress.com<br>support@youradress.com</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-        </div>
-    </div>
-</section>
+
+
 {% endblock body %}
 

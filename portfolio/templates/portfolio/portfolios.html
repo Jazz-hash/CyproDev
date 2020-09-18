@@ -1,6 +1,23 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block body %}
+
+<div class="rogan-hero-section rogan-hero-three pt-300 pb-350 md-pt-200 md-pb-130 pos-r">
+            <div class="shape-wrapper">
+                <img src="{% static 'static/images/shape/portfolio.png' %}" alt="" class="main-image-shape img-shape rest">
+                <img src="{% static 'static/images/shape/Portfolio-responsive.png' %}" alt="" class="main-image-shape img-shape resty">
+
+            </div>
+            <div class="container">
+                <div class="main-wrapper pos-r">
+                    <h1 class="banner-main-title pt-15 pb-45 md-pb-20 wow fadeInUp animated" data-wow-delay="0.4s">{{slider_head}}<br/><span>{{extra_slider_head}}</span></h1>
+                    <p class="banner-sub-title pb-45 wow fadeInUp animated col-md-6" data-wow-delay="0.9s">{{slider_sub_head}}</p>
+                    <a href="#" class="theme-btn solid-button-one button-rose wow fadeInLeft animated" data-wow-delay="1.5s">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <section class="portfolio section-padding" data-scroll-index="1">
     <div class="container">
         <div class="row">

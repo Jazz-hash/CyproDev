@@ -1,72 +1,51 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block body %}
-<section class="hero section-padding pb-0" data-scroll-index="1">
-    <div class="container">
-        <dilv class="row">
-            <div class="offset-lg-2 col-lg-8 text-center mb-80">
-                <h4 class="extra-text">We Are <span>Awesome</span> Agency.</h4>
-                <p>"We love what we do and we love helping others succeed at what they love to do."</p>
+
+    <div class="rogan-hero-section rogan-hero-three pt-300 pb-350 md-pt-200 md-pb-130 pos-r">
+            <div class="shape-wrapper">
+                <img src="{% static 'static/images/shape/about1.png' %}" alt="" class="main-image-shape img-shape rest">
+                <img src="{% static 'static/images/shape/About-responsive.png' %}" alt="" class="main-image-shape img-shape resty">
+
             </div>
-        </dilv>
-        <div class="row">
-            <div class="col-6">
-                <img src="{% static 'static/img/headway-5QgIuuBxKwM-unsplash.jpg' %}" class="img-fluid">
-            </div>
-            <div class="col-6">
-                <div class="mission">
-                    <div class="section-head mb-30">
-                        <h4><span>Who </span><br> We Are
-                        </h4>
-                    </div>
-                    <p>We are Cyprodev. A web, software design and development professionals who love partnering with
-                        good people and businesses to help them achieve digital success.
-                    </p>
+            <div class="container">
+                <div class="main-wrapper pos-r">
+                    <h1 class="banner-main-title pt-15 pb-45 md-pb-20 wow fadeInUp animated" data-wow-delay="0.4s">{{slider_head}}<br/><span>{{extra_slider_head}}</span></h1>
+                    <p class="banner-sub-title pb-45 wow fadeInUp animated col-md-6" data-wow-delay="0.9s">{{slider_sub_head}}</p>
+                    <a href="#" class="theme-btn solid-button-one button-rose wow fadeInLeft animated" data-wow-delay="1.5s">Get Started</a>
                 </div>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-6">
-                <div class="mission">
-                    <br>
-                    <div class="section-head mb-30">
-                        <h4><span>What </span><br> We Do
-                        </h4>
-                    </div>
-                    <p>We’re focused on honing our crafts and bringing everything we have to the table for our clients.
-                        We create custom, functional websites, animated ads, and digitilization focused on converting
-                        your users into customers.
-                    </p>
-                </div>
-            </div>
-            <div class="col-6">
-                <img src="{% static 'static/img/people-coffee-meeting-team-7096.jpg' %}" class="img-fluid">
             </div>
         </div>
     </div>
 
-
-</section>
-
-<!-- =====================================
-        ==== Start Team -->
-
-<section class="team section-padding">
-    <div class="container">
-        <div class="row">
-
-            <div class="section-head col-sm-12">
-                <h4>
-                    <span>Our</span><br> Creative Team
-                </h4>
+ <div class="about-us-block-two pt-100 pb-15 md-pt-30 md-pb-100 pos-r">
+        <!-- /.shape-wrapper -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 order-lg-last res-vision">
+                    <div class="theme-title-one ">
+                        <h2 class="main-title text-right pb-30"><i>Our Creative</i> <span>Team</span></h2>
+                    </div>
+                </div>
             </div>
-
-            <div class="row" id="team">
-
-            </div>
+            <!-- /.container -->
         </div>
-</section>
+        <!-- Element Style -->
+
+        <div class="element-section mb-100 mt-100">
+            <div class="team-business our-team">
+                <div class="container">
+                     <div class="row" id="team">
+
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container -->
+            </div>
+            <!-- /.team-business -->
+        </div>
+    </div>
+
 
 {% endblock body %}
 
@@ -91,28 +70,28 @@
                         var value = data[key];
                         var imageContainer = '';
                         if (value.image) {
-                            imageContainer = '<div class="team-img"> \
-                                                <img src="'+ value.image + '" alt=""> \
-                                            </div>';
+                            imageContainer = '<div class="img-box"> \
+                                        <img src="'+ value.image + '" alt=""> \
+                                    </div>';
                         }
                         else {
                             imageContainer = '<div class="team-img"> \
-                                                <img src="{% static "static/img/team/1.jpg" %}" alt=""> \
+                                                <img src="{% static "static/images/users/1.png" %}" alt=""> \
                                             </div>';
                         }
-                        var team = '<div class="col"> \
-                                        <div class="titem text-center"> \
-                                            '+ imageContainer + '\
-                                            <div class="info"> \
-                                                <h6>'+ value.user.first_name + " " + value.user.last_name + '</h6> \
-                                                <div class="social"> \
-                                                    <a href="#0"><i class="icofont icofont-social-facebook"></i></a> \
-                                                    <a href="#0"><i class="icofont icofont-social-twitter"></i></a> \
-                                                    <a href="#0"><i class="icofont icofont-brand-linkedin"></i></a> \
+
+                        var team = '<div class="col-lg-6">\
+                                        <div class="single-team-member">\
+                                            <div class="wrapper d-sm-flex">\
+                                                '+imageContainer +'\
+                                                <div class="info-meta img-set"> \
+                                                    <h6 class="name">'+ value.user.first_name + " " + value.user.last_name + '</h6> \
+                                                    <span>'+ value.user.username +'</span> \
+                                                    <img src="{% static "static/images/home/sign2.png" %}" alt="" class="signature"> \
                                                 </div> \
-                                            </div> \
-                                        </div> \
-                                    </div>';
+                                            </div>\
+                                        </div>\
+                                    </div>'
 
 
                         containers += team;

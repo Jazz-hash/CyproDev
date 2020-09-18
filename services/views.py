@@ -80,7 +80,7 @@ class ServiceHomeListView(ListView):
         context = super(ServiceHomeListView, self).get_context_data(**kwargs)
         context['head'] = 'Services'
         context['slider_head'] = 'Services'
-        context['slider_sub_head'] = ''
+        context['slider_sub_head'] = 'We are providing wide range of services by our tremendous team. You can check details of every service that we have.'
         context['slider_image'] = '/static/static/img/services.jpg'
 
         return context
