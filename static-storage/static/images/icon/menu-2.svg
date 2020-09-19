@@ -1,0 +1,12 @@
+<svg id="Nav_Icon" data-name="Nav Icon" xmlns="http://www.w3.org/2000/svg" width="31" height="17" viewBox="0 0 31 17">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #414141;
+      }
+    </style>
+  </defs>
+  <rect id="Rectangle" class="cls-1" width="31" height="3" rx="4.5" ry="4.5"/>
+  <rect id="Rectangle-2" data-name="Rectangle" class="cls-1" y="7" width="25" height="3" rx="4.5" ry="4.5"/>
+  <rect id="Rectangle-3" data-name="Rectangle" class="cls-1" y="14" width="15" height="3" rx="4.5" ry="4.5"/>
+</svg>
