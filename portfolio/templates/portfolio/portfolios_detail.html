@@ -1,40 +1,103 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block body %}
-<section class="portfolio section-padding" data-scroll-index="1">
-    <div class="container">
-        <div class="row">
 
-            <div class="section-head col-sm-12">
-                <h4>
-                    <span>{{object.user.first_name}} {{object.user.last_name}}</span><br> {{object.name}}
-                </h4>
-                <br>
-                <br>
-                <h6 class="text-center">
-                    {% if object.description %}
+
+  <div class="rogan-hero-section rogan-hero-three pt-400 pb-350 md-pt-200 md-pb-130 pos-r">
+            <div class="shape-wrapper">
+                <img src="{% static 'static/images/shape/portfolio.png' %} " alt="" class="main-image-shape img-shape rest">
+                <img src="{% static 'static/images/shape/Portfolio-responsive.png' %} " alt="" class="main-image-shape img-shape resty">
+
+                <!-- <img src="images/main/cyprodevcontext.png" alt="" class="img-shape shape-one "> -->
+
+            </div>
+            <!-- /.shape-wrapper -->
+            <div class="container">
+                <div class="main-wrapper pos-r">
+                    <h1 class="banner-main-title pt-15 pb-45 md-pb-20 wow fadeInUp animated" data-wow-delay="0.4s">
+                        <span>Project Name</span></h1>
+                    <p class="banner-sub-title pb-45 wow fadeInUp animated col-md-6" data-wow-delay="0.9s">Check out some of our brilliant work that we have done for our excellent clients like you, this page is waiting for the work that we will do for you.</p>
+                </div>
+                <!-- /.main-wrapper -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /.rogan-hero-section -->
+    </div>
+
+    <!-- Portfolio single Starts -->
+    <div class="project-details version-two pos-r pt-200 pb-130 md-pt-200 md-pb-70" bis_skin_checked="1">
+        <!-- /.shape-wrapper -->
+        <div class="project-container" bis_skin_checked="1">
+            <div class="d-md-flex align-items-end justify-content-between pb-60" bis_skin_checked="1">
+                <div class="project-title-one" bis_skin_checked="1">
+                    <p>{{object.category}}</p>
+                    <h2>{{object.name}}.</h2>
+                    <h3>{{object.user.first_name}} {{object.user.last_name}}</h3>
+                </div>
+                <!-- /.project-title-one -->
+
+                <!-- /.social-icon-two -->
+            </div>
+            <div class="row" bis_skin_checked="1">
+                <div class="col-lg-4" bis_skin_checked="1">
+                    <h6 class="title-two md-pb-20">The Internet advertising <span>famous today.</span></h6>
+                </div>
+                <div class="col-lg-5" bis_skin_checked="1">
+                    <p> {% if object.description %}
                     {{object.description}}
                     
                     {% else %}
                     No description available !
-                    {% endif %}
-                </h6>
-            </div>
-  
-            <div class="container">
-                <div class="row">
-                  {% for image in object.porfolio_images.all %}
-        
-        <div class="col-12 mt-40">
-                        <img src="{{image.image.url}}" class="img-fluid">
+                    {% endif %}</p>
+                </div>
+                <div class="col-lg-3" bis_skin_checked="1">
+                    <div class="info-text-list" bis_skin_checked="1">
+                        <h6>Date</h6>
+                        <p>{{object.created}}</p>
                     </div>
-    {% endfor %}
-                    
-                   
+                    <!-- /.info-text-list -->
+                    <div class="info-text-list mt-30" bis_skin_checked="1">
+                        <h6>Client Name</h6>
+                        <p>Mariona Adisson, USA</p>
+                    </div>
+                    <!-- /.info-text-list -->
+                    <div class="info-text-list mt-30" bis_skin_checked="1">
+                        <h6>Project Type</h6>
+                        <p>{{object.category}}</p>
+                    </div>
+                    <!-- /.info-text-list -->
                 </div>
             </div>
 
+            <div class="project-img-gallery mt-90 md-mt-50" bis_skin_checked="1">
+                <div class="row" bis_skin_checked="1">
+                {% for image in object.porfolio_images.all %}
+                    <div class="col-12" bis_skin_checked="1">
+                        <div class="img-box" bis_skin_checked="1"><img src="{{image.image.url}}" alt=""></div>
+                    </div>
+                {% endfor %}
+                    
+                </div>
+            </div>
+
+            
         </div>
+        <!-- /.project-container -->
     </div>
-</section>
+    <!-- Portfolio single Ends -->
+
+    <!--
+			=====================================================
+				Contact Banner
+			=====================================================
+			-->
+    <div class="action-banner-one mt-100">
+        <div class="theme-title-one">
+            <h2 class="main-title">Do you have any projects?<br><i>Contact us.</i></h2>
+        </div>
+        <!-- /.theme-title-one -->
+        <a href="{% url 'contact' %}" class="theme-btn solid-button-one button-rose wow fadeInLeft animated ml-2">Contact us</a>
+    </div>
+
 {% endblock body %}

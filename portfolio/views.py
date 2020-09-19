@@ -12,10 +12,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 
-class PortfolioPublicListView(TemplateView):
+class PortfolioPublicListView(ListView):
     model = Portfolio
     template_name = 'portfolio/portfolios.html'
 
+    def get_queryset(self):
+        return Portfolio.objects.all().prefetch_related("porfolio_images")
     def get_context_data(self, **kwargs):
         context = super(PortfolioPublicListView,
                         self).get_context_data(**kwargs)

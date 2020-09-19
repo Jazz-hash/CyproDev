@@ -18,37 +18,85 @@
         </div>
     </div>
 
-<section class="portfolio section-padding" data-scroll-index="1">
-    <div class="container">
-        <div class="row">
+ <div class="our-portfolio portfolio-full-width-grid">
+        <div class="d-lg-flex">
+            <div class="gallery-sidebar">
+                <div class="filter-list">
+                    <h5 class="title">Categories</h5>
+                    <div id="js-filters-sidebar" class="cbp-l-filters-alignCenter filter-menu">
+                        <div data-filter="*" class="cbp-filter-item-active cbp-filter-item">
+                            All
+                            <div class="cbp-filter-counter"></div>
+                        </div>
+                        <div data-filter=".web" class="cbp-filter-item">
+                            Web Design & Development
+                            <div class="cbp-filter-counter"></div>
+                        </div>
+                        <div data-filter=".mockup" class="cbp-filter-item">
+                            Mockup & Graphic Design
+                            <div class="cbp-filter-counter"></div>
+                        </div>
+                        <div data-filter=".app" class="cbp-filter-item">
+                            Application
+                            <div class="cbp-filter-counter"></div>
+                        </div>
+                        <div data-filter=".branding" class="cbp-filter-item">
+                            Branding
+                            <div class="cbp-filter-counter"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.filter-list -->
 
-            <div class="section-head col-sm-12">
-                <h4>
-                    <span>Our</span><br> Portfolio
-                </h4>
+                <div class="share-option">
+                    <h5 class="title">Share it. </h5>
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
             </div>
+            <!-- /.gallery-sidebar -->
+            <div class="img-content-wrapper">
+                <div class="theme-title-one mb-60">
+                    <div class="upper-title mb-5">Portfolio</div>
+                    <h2 class="main-title">Portfolio <i>Gallery</i></h2>
+                </div>
+                <!-- /.theme-title-one -->
 
-            <!-- filter links -->
-            <div class="filtering col-sm-12">
-                <span data-filter="*" class="active">All</span>
-                <span data-filter=".brand">Brand</span>
-                <span data-filter=".web">Design</span>
-                <span data-filter=".graphic">Graphic</span>
+                <div id="sidebar-cube-gallery" class="cbp cube-port">
+                    {% for object in object_list %}
+                     <div class='cbp-item mockup app {{object.filter}}'
+                     >
+                        <a href="{{object.header_image.url}}" class="cbp-caption cbp-lightbox" data-title="Ullamcorper vestibulum lectus lorem ultrices convallis ut">
+                            <div class="">
+                                <img src="{{object.header_image.url}}" alt="">
+                            </div>
+                        </a>
+                        <div class="text">
+                            <h3>{{object.name}}</h3>
+                            <p>{{object.category}}</p>
+                            <a href="/portfolios/{{object.id}}" class="read-more">+</a>
+                        </div>
+                        <!-- /.text -->
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="theme-pagination-one pt-65">
+                    <ul>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#"><i class="flaticon-next-1"></i></a></li>
+                    </ul>
+                </div>
+                <!-- /.theme-pagination-one -->
             </div>
-
-            <div class="clearfix"></div>
-
-            <!-- gallery -->
-            <div id="posts" class="gall row text-center full-width">
-
-
-
-            </div>
-
-
+            <!-- /.img-content-wrapper -->
         </div>
     </div>
-</section>
 {% endblock body %}
 
 {% block scripts %}
@@ -71,58 +119,41 @@
                 success: function (data) {
                     Object.keys(data).forEach((key) => {
                         var value = data[key];
+
                         var category = value.category.head;
                         if (category == 'UI/UX & Web Designing' || category == 'Web Development') {
                             type = 'web';
                         }
-                        if (category == 'Graphic Designing') {
-                            type = 'graphic';
+                        if (category == 'Print Designing') {
+                            type = 'print';
                         }
                         if (category == 'Animations') {
-                            type = 'brand';
+                            type = 'branding';
                         }
-                        if (key != 0) {
-                            if ((parseInt(key) + 1) % 2 != 0) {
-                                if (check == '8') {
-                                    check = '4';
-                                }
-                                else if (check == '4') {
-                                    check = '8';
-                                }
-                            }
-                        }
-                        if (check == '8') {
-                            check = '4';
-                        }
-                        else if (check == '4') {
-                            check = '8';
-                        }
+                        
 
-                        var porfolio = '<div class="col-' + check + ' ' + extraClass + '  items ' + type + '">\
-                            <div class="item-img">\
-                                <img src="'+ value.porfolio_images[0].image + '" style="height:340px !important;" alt="image">\
-                                    <div class="item-img-overlay valign">\
-                                        <div class="overlay-info full-width vertical-center">\
-                                            <a href="/portfolios/'+ value.id + '" class="h6">' + value.name + '</a>\
-                                        </div>\
-                                        <a href="portfolio-single.html">\
-                                            <i class="icofont icofont-image"></i>\
-                                        </a>\
-                                    </div>\
-                                </div>\
-                            </div>';
 
+                        var porfolio = '<div class="cbp-item print branding">\
+                                            <div class="text">\
+                                                <h3>'+ value.name +'</h3>\
+                                                <p>'+ category + '</p>\
+                                                <a href="portfolio-single.html" class="read-more">+</a>\
+                                            </div>\
+                                        </div>';
+                                        // <a href="'+ value.porfolio_images[0].image + '" class="cbp-caption cbp-lightbox" data-title="Ullamcorper vestibulum lectus lorem ultrices convallis ut">\
+                                        //         <div class="">\
+                                        //             <img src="'+ value.porfolio_images[0].image + '" alt="">\
+                                        //         </div>\
+                                        //     </a>\
+                                        
+                        console.log(porfolio)
 
                         containers += porfolio;
-                        // console.log(containers);
+
                     });
-                    $('#posts').append(containers);
 
 
-                    // for (let index = 0; index < length; index++) {
-                    //     
-
-                    // };
+                    
                 },
                 error: function (data) {
                     console.log('error');
