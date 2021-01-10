@@ -13,7 +13,9 @@ class Profile(models.Model):
         User, on_delete=models.CASCADE, related_name='profile')
     bio = models.TextField(max_length=500, blank=True)
     image = models.ImageField(upload_to='user-images', blank=True)
+    signature = models.ImageField(upload_to='user-signatures', blank=True)
     social = models.TextField(max_length=500, blank=True)
+    designation = models.CharField(max_length=100, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, blank=True)
 

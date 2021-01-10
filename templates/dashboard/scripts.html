@@ -55,6 +55,9 @@
                 var aTag = document.createElement('a');
                 aTag.className = 'dropdown-item';
                 aTag.innerHTML = 'No new notifications';
+                // console.log(aTag)
+                document.getElementById('empty').innerHTML = "";
+                // console.log(document.getElementById('empty').innerHTML);
                 document.getElementById('empty').appendChild(aTag);
             }
         }

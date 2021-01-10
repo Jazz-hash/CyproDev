@@ -17,7 +17,7 @@
         <div class="row">
           <div class="col-md-5 pr-1">
             <div class="form-group">
-              <label>Company (disabled)</label>
+              <label>Company </label>
               <input type="text" class="form-control" disabled="" placeholder="Company" value="CyproDev">
             </div>
           </div>
@@ -25,6 +25,14 @@
             <div class="form-group">
               <label>Username</label>
               <input type="text" class="form-control" disabled="" placeholder="Username" value="{{user.username}}">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-11 pr-1">
+            <div class="form-group">
+              <label>Designation</label>
+              <input type="text" class="form-control" disabled="" placeholder="Company" value="{{user.profile.designation}}">
             </div>
           </div>
         </div>
@@ -58,16 +66,17 @@
       <hr>
       <div class="button-container">
         <div class="container p-3">
+          {% if user.profile.social %}
           {{user.profile.social}}
+          {% else %}
+          No socials available !
+          {% endif %}
+        </div>
+        <div class="container p-3">
+          <img src="{{user.profile.signature.url}}" alt="signature" width="100px" />
         </div>
       </div>
     </div>
   </div>
 </div>
 {% endblock body %}
-{% block scripts %}
-<script>showData();
-
-</script>
-
-{% endblock scripts %}

@@ -27,11 +27,12 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ['bio', 'image', 'social']
+        fields = ['bio', 'image', 'social', 'signature']
 
         widgets = {
             'bio': forms.Textarea(attrs={'class': 'form-control mb-2'}),
             'image': forms.FileInput(attrs={'class': 'form-control mb-2'}),
+            'signature': forms.FileInput(attrs={'class': 'form-control mb-2'}),
             'social': forms.Textarea(attrs={'class': 'form-control mb-2'}),
         }
 

@@ -40,12 +40,16 @@ def UserDetailsEditView(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             image = request.FILES.get('image')
+            signature = request.FILES.get('signature')
             bio = request.POST.get('bio')
             social = request.POST.get('social')
             user_profile = Profile.objects.get(user=request.user)
             user_profile.bio = bio
             user_profile.social = social
-            user_profile.image = image
+            if image:
+                user_profile.image = image
+            if signature:
+                user_profile.signature = signature
             user_profile.save()
             return HttpResponseRedirect(reverse('accounts:profile'))
 
