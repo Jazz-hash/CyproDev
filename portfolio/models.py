@@ -26,22 +26,7 @@ class Portfolio(models.Model):
         return reverse('portfolio:add')
 
     def save(self, *args, **kwargs):
-        if self.category.head == "Web Development":
-            self.filter = "web"
-        elif self.category.head == "UI/UX & Web Designing":
-            self.filter = "mockup"
-        elif self.category.head == "Graphic Designing":
-            self.filter = "graphic"
-        elif self.category.head == "Mobile Application Development":
-            self.filter = "app"
-        elif self.category.head == "Desktop Application Development":
-            self.filter = "app"
-        elif self.category.head == "	Marketing Strategy":
-            self.filter = "market"
-        elif self.category.head == "Branding":
-            self.filter = "branding"
-        else:
-            self.filter = ""
+        self.filter = self.category.head[:2].lower()
         super().save(*args, **kwargs)
 
 

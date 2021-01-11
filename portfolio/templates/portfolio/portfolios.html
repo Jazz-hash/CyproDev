@@ -12,7 +12,6 @@
                 <div class="main-wrapper pos-r">
                     <h1 class="banner-main-title pt-15 pb-45 md-pb-20 wow fadeInUp animated" data-wow-delay="0.4s">{{slider_head}}<br/><span>{{extra_slider_head}}</span></h1>
                     <p class="banner-sub-title pb-45 wow fadeInUp animated col-md-6" data-wow-delay="0.9s">{{slider_sub_head}}</p>
-                    <a href="#" class="theme-btn solid-button-one button-rose wow fadeInLeft animated" data-wow-delay="1.5s">Get Started</a>
                 </div>
             </div>
         </div>
@@ -28,22 +27,12 @@
                             All
                             <div class="cbp-filter-counter"></div>
                         </div>
-                        <div data-filter=".web" class="cbp-filter-item">
-                            Web Design & Development
+                    {% for service in services %}
+                        <div data-filter=".{{service.filter}}" class="cbp-filter-item">
+                            {{service.head}}
                             <div class="cbp-filter-counter"></div>
                         </div>
-                        <div data-filter=".mockup" class="cbp-filter-item">
-                            Mockup & Graphic Design
-                            <div class="cbp-filter-counter"></div>
-                        </div>
-                        <div data-filter=".app" class="cbp-filter-item">
-                            Application
-                            <div class="cbp-filter-counter"></div>
-                        </div>
-                        <div data-filter=".branding" class="cbp-filter-item">
-                            Branding
-                            <div class="cbp-filter-counter"></div>
-                        </div>
+                    {% endfor %}
                     </div>
                 </div>
                 <!-- /.filter-list -->
@@ -105,6 +94,7 @@
 
     $(document).ready(function () {
         var search_query = '/api/portfolio/search/?query=';
+        var services_query = "/api/service/"
         var type = '';
         var containers = '';
         var check = '8';
@@ -112,6 +102,27 @@
         var extraClass = '';
 
         getData(search_query);
+        // getServices(services_query);
+        function getServices(query) {
+            $.ajax({
+                url: query,
+                method: 'GET',
+                success: function (data) {
+                    data.forEach((service) => {
+                        var title = service["head"];
+                        console.log(title.substring(0, 2).toLowerCase());
+                        var services = '<div data-filter=".we" class="cbp-filter-item">\
+                            '+ service["head"] + '\
+                        <div class="cbp-filter-counter" ></div>\
+                        </div>'
+                        $("#js-filters-sidebar").append(services);                      
+                    });
+
+                    
+                },
+            });
+        }
+
         function getData(query) {
             $.ajax({
                 url: query,
@@ -140,13 +151,7 @@
                                                 <a href="portfolio-single.html" class="read-more">+</a>\
                                             </div>\
                                         </div>';
-                                        // <a href="'+ value.porfolio_images[0].image + '" class="cbp-caption cbp-lightbox" data-title="Ullamcorper vestibulum lectus lorem ultrices convallis ut">\
-                                        //         <div class="">\
-                                        //             <img src="'+ value.porfolio_images[0].image + '" alt="">\
-                                        //         </div>\
-                                        //     </a>\
                                         
-                        console.log(porfolio)
 
                         containers += porfolio;
 

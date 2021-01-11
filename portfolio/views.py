@@ -8,6 +8,7 @@ from services.models import Service
 from django.urls import reverse_lazy
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
+from services.models import Service
 
 # Create your views here.
 
@@ -23,6 +24,7 @@ class PortfolioPublicListView(ListView):
                         self).get_context_data(**kwargs)
         context['head'] = 'Portfolios'
         context['slider_head'] = 'Portfolio'
+        context['services'] = Service.objects.filter(to_be_filtered=True)
         context['slider_sub_head'] = 'Check out some of our brilliant work that we have done for our excellent clients like you, this page is waiting for the work that we will do for you.'
         return context
 
