@@ -1,0 +1,160 @@
+{% extends 'base/base.html' %} 
+{% load static %} 
+{% block body %} 
+{% comment %}
+<div
+  class="rogan-hero-section rogan-hero-three pt-300 pb-350 md-pt-200 md-pb-130 pos-r"
+  style="overflow-y: hidden"
+>
+  <div class="shape-wrapper">
+    <img
+      src="{% static 'static/images/shape/contact.png' %}"
+      alt=""
+      class="main-image-shape img-shape rest"
+    />
+    <img
+      src="{% static 'static/images/shape/Contact-responsive.png' %}"
+      alt=""
+      class="main-image-shape img-shape resty"
+    />
+  </div>
+  <div class="container">
+    <div class="main-wrapper pos-r">
+      <h1
+        class="banner-main-title pt-15 pb-45 md-pb-20 wow fadeInUp animated"
+        data-wow-delay="0.4s"
+      >
+        {{slider_head}}<br /><span>{{extra_slider_head}}</span>
+      </h1>
+      <p
+        class="banner-sub-title pb-45 wow fadeInUp animated col-md-6"
+        data-wow-delay="0.9s"
+      >
+        {{slider_sub_head}}
+      </p>
+    </div>
+  </div>
+</div>
+{% endcomment %}
+
+<div class="element-section mt-150 mb-150 contact-us-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 order-lg-first">
+        <div class="contact-form">
+          <form class="form theme-form-style-two" {% if form_id %} id='{{ form_id }}' {% endif %} action="{% if action_url %}{{ action_url }}{% endif %}" method="POST">
+            <div class="messages">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+            <div class="controls">
+            
+
+        {% csrf_token %}
+        {{ form }}
+                <label>Rating:</label>
+    <div class='rating-stars text-center'>
+        <ul id='stars'>
+            <li class='star' title='Poor' data-value='1'>
+                <i class='fa fa-star fa-fw'></i>
+            </li>
+            <li class='star' title='Fair' data-value='2'>
+                <i class='fa fa-star fa-fw'></i>
+            </li>
+            <li class='star' title='Good' data-value='3'>
+                <i class='fa fa-star fa-fw'></i>
+            </li>
+            <li class='star' title='Excellent' data-value='4'>
+                <i class='fa fa-star fa-fw'></i>
+            </li>
+            <li class='star' title='WOW!!!' data-value='5'>
+                <i class='fa fa-star fa-fw'></i>
+            </li>
+        </ul>
+    </div>
+    <input type="text" name="ratings" id="ratings" />
+              
+              <button class="theme-btn solid-button-one button-rose ml-0">
+                Send Message
+              </button>
+            </div>
+            <!-- /.controls -->
+          </form>
+        </div>
+        <!-- /.contact-form -->
+      </div>
+    </div>
+  </div>
+  <!-- /.container -->
+</div>
+
+{% endblock body %}
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+
+            /* 1. Visualizing things on Hover - See next part for action on click */
+            $('#stars li').on('mouseover', function () {
+                var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+
+                // Now highlight all the stars that's not after the current hovered star
+                $(this).parent().children('li.star').each(function (e) {
+                    if (e < onStar) {
+                        $(this).addClass('hover');
+                    }
+                    else {
+                        $(this).removeClass('hover');
+                    }
+                });
+
+            }).on('mouseout', function () {
+                $(this).parent().children('li.star').each(function (e) {
+                    $(this).removeClass('hover');
+                });
+            });
+
+
+            /* 2. Action to perform on click */
+            $('#stars li').on('click', function () {
+                var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+                var stars = $(this).parent().children('li.star');
+
+                for (i = 0; i < stars.length; i++) {
+                    $(stars[i]).removeClass('selected');
+                }
+
+                for (i = 0; i < onStar; i++) {
+                    $(stars[i]).addClass('selected');
+                }
+
+                // JUST RESPONSE (Not needed)
+                var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+                var msg = "";
+                if (ratingValue > 1) {
+                    msg = "Thanks! You rated this " + ratingValue + " stars.";
+                }
+                else {
+                    msg = "We will improve ourselves. You rated this " + ratingValue + " stars.";
+                }
+                responseMessage(msg, ratingValue);
+
+            });
+
+
+        });
+
+
+        function responseMessage(msg, ratingValue) {
+           console.log(ratingValue);
+           $("#ratings").val(ratingValue);
+        }
+</script>
+{% endblock %}

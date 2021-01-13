@@ -327,6 +327,7 @@ body {
 
 .main-page-wrapper {
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .h1,

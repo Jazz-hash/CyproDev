@@ -30,6 +30,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.Index.as_view(), name="home"),
     path('about/', views.About.as_view(), name="about"),
+    path('feedback/', include('feedback.urls', namespace='feedback')),
     path('our-services/', ServiceHomeListView.as_view(), name="services"),
     path('portfolios/', PortfolioPublicListView.as_view(), name="portfolios"),
     path('portfolios/<int:pk>',

@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'contact',
     'portfolio',
     'tasks',
-    'notifications'
+    'notifications',
+    'feedback'
 ]
 
 MIDDLEWARE = [
@@ -72,6 +73,10 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+TEMPLATE_CONTEXT_PROCESSORS = [
+    'django.core.context_processors.request'
 ]
 
 WSGI_APPLICATION = 'cyprodev.wsgi.application'
