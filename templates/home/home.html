@@ -103,102 +103,33 @@
             <div class="order-lg-first">
                 <div class="slider-wrapper">
                     <div class="standard-testimonial-slider">
-                        <div class="item">
+                    {% for object in object_list %}
+                    <div class="item">
                             <div class="customer-content shadow">
                                 <div class=" align-items-center">
-                                    <img src="{% static 'static/images/home/2.jpg' %}" alt="" class="c-img">
+                                    <img src="{% static 'static/images/home/user.png' %}" alt="" class="c-img">
                                     <div class="mt-3">
-                                        <h6>Mr.Client</h6>
-                                        <small> Dhaka, BD</small>
+                                        <h6>{{object.name}}</h6>
+                                        <small>{{object.company}}, {{object.designation}}</small>
                                     </div>
                                 </div>
-                                <p class="pt-1 pb-1">Having a home based business is a wonderful assets to your life.Those problem still stands.</p>
+                                <p class="pt-1 pb-1">{{object.message}}</p>
+                                        <a href="mailto:{{object.email}}">{{object.email}}</a>
+
                                 <ul class="d-flex">
-                                    <li class="pr-1">
-                                                                                <img class="img-star" src="{% static 'static/images/stars/light.png' %}" alt="star">
 
-                                    </li>
-                                    <li class="pr-1">
-                                                                                <img class="img-star" src="{% static 'static/images/stars/light.png' %}" alt="star">
-
-                                    </li>
-                                    <li class="pr-1">
-                                                                                <img class="img-star" src="{% static 'static/images/stars/light.png' %}" alt="star">
-
-                                    </li>
-                                    <li class="pr-1">
-                                                                                <img class="img-star" src="{% static 'static/images/stars/light.png' %}" alt="star">
-
-                                    </li>
-                                    <li class="pr-1">
-                                                                                <img class="img-star" src="{% static 'static/images/stars/light.png' %}" alt="star">
-
-                                    </li>
+                                {% for i in "x"|rjust:object.rating %}
+                                <li class="pr-1">
+                                    <img class="img-star" src="{% static 'static/images/stars/light.png' %}" alt="star">
+                                </li>
+                                {% endfor %}
+                                    
                                 </ul>
                             </div>
                             <!-- /.customer-content -->
                         </div>
-                        <div class="item ">
-                            <div class="customer-content shadow">
-                                <div class=" align-items-center">
-                                    <img src="{% static 'static/images/home/3.jpg' %}" alt="" class="c-img">
-                                    <div class="mt-3">
-                                        <h6>Rashed Ka.</h6>
-                                        <small>Dhaka, BD</small>
-                                    </div>
-                                </div>
-                                <p class="pt-1 pb-1">Having a home based business is a wonderful assets to your life.Those problem still stands.</p>
-                                <ul class="d-flex">
-                                    <li class="pr-1">
-                                        <img class="img-star" src="{% static 'static/images/stars/light.png' %}" alt="star">
-                                    </li>
-                                    <li class="pr-1">
-                                        <img class="img-star" src="{% static 'static/images/stars/light.png' %}" alt="star">
-                                    </li>
-                                    <li class="pr-1">
-                                        <img class="img-star" src="{% static 'static/images/stars/light.png' %}" alt="star">
-                                    </li>
-                                    <li class="pr-1">
-                                        <img class="img-star" src="{% static 'static/images/stars/light.png' %}" alt="star">
-                                    </li>
-                                    <li class="pr-1">
-                                        <img class="img-star" src="{% static 'static/images/stars/light.png' %}" alt="star">
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- /.customer-content -->
-                        </div>
-                        <div class="item ">
-                            <div class="customer-content shadow">
-                                <div class=" align-items-center">
-                                    <img src="{% static 'static/images/home/7.jpg' %}" alt="" class="c-img">
-                                    <div class="mt-3">
-                                        <h6>Z. Hasan</h6>
-                                        <small>Dhaka, BD</small>
-                                    </div>
-                                </div>
-                                <p class="pt-1 pb-1">Having a home based business is a wonderful assets to your life.Those problem still stands.</p>
-                                <ul class="d-flex">
-                                    <li class="pr-1">
-                                        <img class="img-star" src="{% static 'static/images/stars/light.png' %}" alt="star">
-                                    </li>
-                                    <li class="pr-1">
-                                        <img class="img-star" src="{% static 'static/images/stars/light.png' %}" alt="star">
-                                    </li>
-                                    <li class="pr-1">
-                                        <img class="img-star" src="{% static 'static/images/stars/light.png' %}" alt="star">
-                                    </li>
-                                    <li class="pr-1">
-                                        <img class="img-star" src="{% static 'static/images/stars/light.png' %}" alt="star">
-                                    </li>
-                                    <li class="pr-1">
-                                        <img class="img-star" src="{% static 'static/images/stars/light.png' %}" alt="star">
-                                    </li>
-                                </ul>
-                            </div>
-                            <br>
-                            <!-- /.customer-content -->
-                        </div>
+                    {% endfor %}
+                        
                     </div>
                     <!-- /.standard-testimonial-slider -->
                 </div>

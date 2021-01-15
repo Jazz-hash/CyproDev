@@ -1,7 +1,6 @@
 {% extends 'base/base.html' %} 
 {% load static %} 
 {% block body %} 
-{% comment %}
 <div
   class="rogan-hero-section rogan-hero-three pt-300 pb-350 md-pt-200 md-pb-130 pos-r"
   style="overflow-y: hidden"
@@ -35,7 +34,6 @@
     </div>
   </div>
 </div>
-{% endcomment %}
 
 <div class="element-section mt-150 mb-150 contact-us-section">
   <div class="container">
@@ -61,7 +59,7 @@
         {% csrf_token %}
         {{ form }}
                 <label>Rating:</label>
-    <div class='rating-stars text-center'>
+    <div class='rating-stars text-center border p-4'>
         <ul id='stars'>
             <li class='star' title='Poor' data-value='1'>
                 <i class='fa fa-star fa-fw'></i>
@@ -80,8 +78,9 @@
             </li>
         </ul>
     </div>
-    <input type="text" name="ratings" id="ratings" />
-              
+    <input type="hidden" name="ratings" id="ratings" />
+              <br />
+              <br />
               <button class="theme-btn solid-button-one button-rose ml-0">
                 Send Message
               </button>

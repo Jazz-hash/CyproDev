@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import (
-    ListView, DetailView, CreateView, UpdateView, DeleteView)
+    ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView)
 from .models import Service
 from .forms import ServiceModelForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -72,12 +72,13 @@ class ServiceDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return self.request.user.is_superuser
 
 
-class ServiceHomeListView(ListView):
-    model = Service
+class ServiceHomeListView(TemplateView):
     template_name = "home/services.html"
+
 
     def get_context_data(self, **kwargs):
         context = super(ServiceHomeListView, self).get_context_data(**kwargs)
+        context["object_list"] = Service.objects.filter(to_be_filtered=True)
         context['head'] = 'Services'
         context['slider_head'] = 'Services'
         context['slider_sub_head'] = 'We are providing wide range of services by our tremendous team. You can check details of every service that we have.'
