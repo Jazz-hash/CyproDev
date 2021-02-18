@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "myriadpro" !important;
+  src: url("../myriad-pro/myriadpro.OTF");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "nexa-bold" !important;
+  src: url("nexa-bold.otf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "nexa-light" !important;
+  src: url("../nexa/nexa-light.otf");
+  font-weight: lighter;
+  font-style: normal;
+}

@@ -5,7 +5,8 @@ from django.urls import reverse
 
 # Create your models here.
 class Service(models.Model):
-    icon = models.ImageField(upload_to="services-icons", blank=True)
+    # icon = models.ImageField(upload_to="services-icons", blank=True)
+    icon = models.CharField(max_length=50)
     head = models.CharField(max_length=50)
     description = models.TextField(blank=True)
     to_be_filtered = models.BooleanField(default=True)

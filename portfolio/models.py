@@ -18,6 +18,7 @@ class Portfolio(models.Model):
         Service, on_delete=models.CASCADE, default=None)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, blank=True)
+    priority = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name

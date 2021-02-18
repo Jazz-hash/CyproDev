@@ -18,7 +18,7 @@ class PortfolioPublicListView(ListView):
     template_name = 'portfolio/portfolios.html'
 
     def get_queryset(self):
-        return Portfolio.objects.all().prefetch_related("porfolio_images")
+        return Portfolio.objects.all().order_by('-priority').prefetch_related("porfolio_images")
     def get_context_data(self, **kwargs):
         context = super(PortfolioPublicListView,
                         self).get_context_data(**kwargs)

@@ -11,7 +11,7 @@ class PortfolioForm(forms.ModelForm):
     class Meta:
         model = Portfolio
         fields = ['name', 'category', 'language',
-                  'description','header_image', 'images', 'hosted_link']
+                  'description','header_image', 'images', 'hosted_link', 'priority']
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control mb-2'}),
